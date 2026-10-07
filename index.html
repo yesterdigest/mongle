@@ -152,13 +152,25 @@ details p{margin:10px 0 0;color:var(--ink2)}
 
 footer{padding:36px 0 52px;font-size:13px;color:var(--ink3);border-top:1px solid var(--line)}
 footer .biz{margin:10px 0;padding:10px 12px;border-radius:10px;border:1px dashed var(--line)}
+.hd-left{display:flex;align-items:center;gap:6px}
+.menu-btn{width:40px;height:40px;margin-left:-8px;border:0;background:transparent;color:var(--ink);border-radius:10px;display:grid;place-items:center;cursor:pointer}
+.menu-btn:hover{background:var(--line)}.menu-btn svg{width:22px;height:22px}
+.drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:20}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:min(300px,84vw);background:var(--bg);z-index:21;box-shadow:4px 0 24px rgba(0,0,0,.15);padding:12px 16px;overflow-y:auto}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;height:48px;margin-bottom:8px}
+.drawer-title{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--ink3)}
+.drawer-nav{display:flex;flex-direction:column}
+.drawer-nav .menu-item{display:flex;align-items:center;justify-content:space-between;padding:14px 8px;margin:0;line-height:1.4;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:17px;font-weight:600}
+.drawer-nav .menu-small{font-size:14px;font-weight:500;color:var(--ink2);border-bottom:0;padding:10px 8px}
+.menu-item[aria-current]{color:var(--sky)}.menu-out svg{width:15px;height:15px;opacity:.5}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <a class="logo" href="#top"><i aria-hidden="true"></i>몽글몽글필름</a>
+    <div class="hd-left"><button class="menu-btn" type="button" id="menu-open" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="logo" href="#top"><i aria-hidden="true"></i>몽글몽글필름</a></div>
     <div class="hd-right">
       <nav aria-label="바로가기">
         <a href="#services">맡길 수 있는 일</a>
@@ -170,6 +182,21 @@ footer .biz{margin:10px 0;padding:10px 12px;border-radius:10px;border:1px dashed
     </div>
   </div>
 </header>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<div class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+  <div class="drawer-head"><span class="drawer-title" id="drawer-title">MENU</span><button class="menu-btn" type="button" id="menu-close" aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav class="drawer-nav" aria-label="yesterdigest.com 메뉴">
+      <a class="menu-item" href="/">어제한입</a>
+      <a class="menu-item" href="/#editions">지난 편</a>
+      <a class="menu-item" href="/#growth">채널 성장</a>
+      <a class="menu-item" href="/ohora/">오호라 <span class="menu-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></a>
+      <a class="menu-item" href="/mongle/" aria-current="page">몽글몽글필름</a>
+      <a class="menu-item" href="/cv/">CV <span class="menu-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></a>
+      <a class="menu-item menu-small" href="/privacy/">개인정보처리방침</a>
+      <a class="menu-item menu-small" href="/terms/">이용약관</a>
+  </nav>
+</div>
+
 
 <main id="top">
 
@@ -372,5 +399,12 @@ footer .biz{margin:10px 0;padding:10px 12px;border-radius:10px;border:1px dashed
   </div>
 </footer>
 
+<script>
+(function(){var d=document.getElementById("drawer"),b=document.getElementById("drawer-backdrop"),o=document.getElementById("menu-open"),c=document.getElementById("menu-close");
+function open(){d.hidden=false;b.hidden=false;o.setAttribute("aria-expanded","true");c.focus()}
+function close(){d.hidden=true;b.hidden=true;o.setAttribute("aria-expanded","false");o.focus()}
+o.addEventListener("click",open);c.addEventListener("click",close);b.addEventListener("click",close);
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)close()});})();
+</script>
 </body>
 </html>
