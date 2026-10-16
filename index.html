@@ -1,410 +1,990 @@
 <!doctype html>
-<html lang="ko">
+<html lang="ko" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>몽글몽글필름</title>
-<meta name="description" content="사진·영상만 보내 주시면 보기 좋게 만들어 드리는 작은 영상 공방, 몽글몽글필름">
-<!-- 초안 2판 2026-10-07 22:2x · 깔끔하고 밝게 · 게시 전 · 결제·주문 기능 없음(사업자등록·통신판매업 신고 전) -->
+<title>몽글몽글필름 · 가게 홍보 영상과 식전·결혼식·돌잔치 영상</title>
+<meta name="description" content="동네 가게 홍보 영상을 한 달 단위로, 결혼식 식전 영상·결혼식 영상·돌잔치 영상은 한 편씩 만들어 드려요. 사진만 보내 주세요. 가게 영상은 월 4편 15만 원, 한 편 4만 원.">
+<link rel="canonical" href="https://yesterdigest.com/mongle/">
+<meta name="theme-color" content="#FFDCE5">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="몽글몽글필름">
+<meta property="og:title" content="몽글몽글필름 · 가게 홍보 영상, 식전·결혼식·돌잔치 영상">
+<meta property="og:description" content="사진만 보내 주세요. 가게 홍보 영상은 월 4편 15만 원 · 한 편 4만 원, 식전·결혼식·돌잔치 영상도 만들어요.">
+<meta property="og:url" content="https://yesterdigest.com/mongle/">
+<meta property="og:image" content="https://yesterdigest.com/mongle/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="몽글몽글필름 로고">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="몽글몽글필름 · 가게 홍보 영상, 식전·결혼식·돌잔치 영상">
+<meta name="twitter:description" content="사진만 보내 주세요. 재료를 받고 보통 하루 안에 첫 영상을 보여 드려요.">
+<meta name="twitter:image" content="https://yesterdigest.com/mongle/img/og.jpg">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://yesterdigest.com/mongle/#org",
+      "name": "몽글몽글필름",
+      "url": "https://yesterdigest.com/mongle/",
+      "logo": "https://yesterdigest.com/mongle/img/logo-512.png",
+      "description": "동네 가게 홍보 영상을 한 달 단위로, 식전 영상·결혼식 영상·돌잔치 영상을 한 편씩 만들어 드리는 영상 제작 서비스",
+      "sameAs": ["http://pf.kakao.com/_JxoTFX"]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://yesterdigest.com/mongle/#service",
+      "name": "동네 가게 홍보 영상 제작",
+      "serviceType": "홍보 영상 제작",
+      "provider": { "@id": "https://yesterdigest.com/mongle/#org" },
+      "areaServed": { "@type": "Country", "name": "대한민국" },
+      "description": "인테리어·음식점·청소 같은 동네 가게의 사진과 짧은 영상으로 30초~1분 홍보 영상을 만들어 드립니다. 영상마다 1회 무료 수정.",
+      "url": "https://yesterdigest.com/mongle/",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "한 달 4편",
+          "price": "150000",
+          "priceCurrency": "KRW",
+          "description": "30초~1분 영상 4편 · 영상마다 1회 무료 수정"
+        },
+        {
+          "@type": "Offer",
+          "name": "한 편",
+          "price": "40000",
+          "priceCurrency": "KRW",
+          "description": "30초~1분 영상 1편 · 1회 무료 수정"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://yesterdigest.com/mongle/#event",
+      "name": "식전 영상 · 결혼식 영상 · 돌잔치 영상 제작",
+      "serviceType": "행사 영상 제작",
+      "provider": { "@id": "https://yesterdigest.com/mongle/#org" },
+      "areaServed": { "@type": "Country", "name": "대한민국" },
+      "description": "보내 주신 사진과 영상으로 결혼식 식전 영상, 결혼식 영상, 돌잔치 영상을 만들어 드립니다. 값은 구성에 따라 달라서 신청서를 보고 안내합니다.",
+      "url": "https://yesterdigest.com/mongle/#services"
+    },
+    {
+      "@type": "WebSite",
+      "url": "https://yesterdigest.com/mongle/",
+      "name": "몽글몽글필름",
+      "inLanguage": "ko-KR"
+    }
+  ]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
+/* 몽글몽글필름 홈페이지 · 2026-10-16 · 각진 모서리 · 그림자 없음 · 로고(자두색 글자 + 분홍→살구→연보라)에서 색을 땀 */
 :root{
-  --bg:#FFFFFF; --bg-soft:#F7FAFC; --card:#FFFFFF; --ink:#1B2430; --ink2:#5A6675; --ink3:#8793A1; --line:#E6ECF2;
-  --sky:#1C7FD6; --sky-soft:#EAF4FD; --sky-ink:#FFFFFF;
-  --leaf:#3E9B4F; --leaf-soft:#EEF8EC;
-  --shadow:0 1px 2px rgba(20,40,60,.05),0 4px 14px rgba(20,40,60,.05);
+  --ink:#6A4E63;          /* 로고 글자색 · 글자는 이 한 색 */
+  --ink2:#7D6677;         /* 보조 글자 */
+  --bg:#FFFCFA;
+  --pink:#FFDCE5; --peach:#FFE9D2; --lav:#E8E1FF;
+  --band:linear-gradient(135deg,#FFEEF2 0%,#FFF4EA 50%,#F3EFFF 100%);
+  --grad:linear-gradient(135deg,#FFDCE5 0%,#FFE9D2 50%,#E8E1FF 100%);
+  --line:#E7DAE1;
+  --dark:#3B2836;
+  --w:1140px;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --bg:#0F151C; --bg-soft:#141C25; --card:#18212B; --ink:#E9EEF3; --ink2:#A7B3C0; --ink3:#7E8B99; --line:#26313D;
-    --sky:#5BB0F2; --sky-soft:#152B40; --sky-ink:#0B1621;
-    --leaf:#7CCB86; --leaf-soft:#18301D;
-    --shadow:0 1px 2px rgba(0,0,0,.3);
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#0F151C; --bg-soft:#141C25; --card:#18212B; --ink:#E9EEF3; --ink2:#A7B3C0; --ink3:#7E8B99; --line:#26313D;
-  --sky:#5BB0F2; --sky-soft:#152B40; --sky-ink:#0B1621;
-  --leaf:#7CCB86; --leaf-soft:#18301D;
-  --shadow:0 1px 2px rgba(0,0,0,.3);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,'Pretendard Variable',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;word-break:keep-all;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box;border-radius:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,'Pretendard Variable',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;font-size:16px;line-height:1.75;font-weight:500;letter-spacing:-.5px;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
 a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
-section{padding:72px 0}
-@media (min-width:860px){section{padding:112px 0}}
-.soft{background:var(--bg-soft)}
-.eyebrow{display:inline-block;font-size:13px;font-weight:600;color:var(--sky);letter-spacing:.02em;margin-bottom:10px}
-h1,h2,h3{letter-spacing:-.02em;margin:0}
-h2{font-size:28px;line-height:1.35;font-weight:800}
-@media (min-width:860px){h2{font-size:36px}}
-.lead{color:var(--ink2);margin:10px 0 36px;font-size:17px}
+h1,h2,h3,h4{margin:0;font-weight:800;letter-spacing:-1px;line-height:1.3}
+p{margin:0}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 16px}
+.todo{outline:1px dashed #C77F9B;outline-offset:2px}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
-/* 머리줄 — 메뉴는 글자, 행동은 단추 하나 */
-header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
-.logo{font-family:'Jua',sans-serif;font-size:22px;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
-.logo i{width:22px;height:14px;border-radius:999px;background:linear-gradient(90deg,var(--sky) 0 50%,var(--leaf) 50%);opacity:.9}
-.hd-right{display:flex;align-items:center;gap:20px}
-nav{display:flex;gap:22px;font-size:15px}
-nav a{text-decoration:none;color:var(--ink2)}
-nav a:hover{color:var(--ink)}
-.hd-btn{font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;background:var(--sky);color:var(--sky-ink);text-decoration:none;white-space:nowrap}
-@media (max-width:720px){ nav{display:none} }
+/* 버튼 */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 26px;font:800 17px/1 Pretendard,sans-serif;letter-spacing:-.5px;text-decoration:none;border:2px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:#4F3649;border-color:#4F3649}
+.btn.line{background:transparent;color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.btn.big{min-height:60px;padding:0 36px;font-size:20px}
+
+/* 머리글 · 높이 68px · 스크롤을 따라오지 않음(참고 사이트처럼) */
+header.top{position:relative;z-index:20;height:68px;background:var(--bg)}
+header.top .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;white-space:nowrap}
+.brand img{width:40px;height:40px}
+.brand span{font-family:'Jua','Pretendard',sans-serif;font-weight:400;font-size:25px;letter-spacing:-1px;line-height:1}
+nav.main{display:flex;align-items:center;gap:4px}
+nav.main a{display:block;padding:6px 15px;font-size:18px;font-weight:800;letter-spacing:-1px;text-decoration:none;border-bottom:3px solid transparent}
+nav.main a:hover{border-bottom-color:var(--ink)}
+nav.main a.cta{margin-left:10px;padding:10px 20px;background:var(--ink);color:#fff;border:0}
+nav.main a.cta:hover{background:#4F3649}
+.burger{display:none;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--ink);cursor:pointer}
+.burger svg{margin:auto}
 
 /* 첫 화면 */
-.hero{padding:48px 0 72px}
-.hero .wrap{display:grid;gap:44px;align-items:center}
-@media (min-width:900px){.hero{padding:96px 0 112px}.hero .wrap{grid-template-columns:1.15fr .85fr}}
-.hero h1{font-size:36px;line-height:1.3;font-weight:800}
-.hero h1 span{color:var(--sky)}
-@media (min-width:900px){.hero h1{font-size:52px}}
-.hero p.sub{font-size:17px;color:var(--ink2);margin:18px 0 28px;max-width:520px}
-.btns{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:14px 22px;border-radius:12px;text-decoration:none;font-size:16px;font-weight:700}
-.btn.main{background:var(--sky);color:var(--sky-ink)}
-.btn.sub{background:var(--card);border:1px solid var(--line);color:var(--ink)}
-.checks{display:flex;flex-wrap:wrap;gap:6px 18px;margin:18px 0 0;padding:0;list-style:none;font-size:14px;color:var(--ink2)}
-.checks li::before{content:"✓ ";color:var(--leaf);font-weight:700}
-.phone{position:relative;justify-self:center;width:min(280px,82vw);aspect-ratio:9/16;border-radius:30px;padding:7px;background:#11161D;box-shadow:0 20px 50px rgba(28,127,214,.18)}
-.phone video{width:100%;height:100%;border-radius:24px;display:block;background:#101633;object-fit:cover}
-.phone .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:600;padding:3px 12px;border-radius:999px;background:var(--card);color:var(--ink);border:1px solid var(--line);white-space:nowrap}
-.caption{text-align:center;font-size:13px;color:var(--ink3);margin-top:14px}
+.hero{background:var(--grad);padding:64px 0 52px;text-align:center}
+.hero h1{font-size:51px;letter-spacing:-1.5px}
+.hero .sub{max-width:620px;margin:22px auto 30px;font-size:19px;font-weight:600;line-height:1.7}
+.hero .btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.hero .mini{margin-top:20px;font-size:15px;font-weight:700}
 
-/* 세 가지 특징 */
-.feats{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:28px}
-@media (min-width:760px){.feats{grid-template-columns:repeat(3,1fr);gap:24px}}
-.feat b{display:block;font-size:16px}
-.feat span{font-size:15px;color:var(--ink2)}
-.credit{font-size:13px;color:var(--ink3);margin-top:20px}
+/* 사례 슬라이더 */
+.stage-wrap{max-width:var(--w);margin:0 auto;padding:0 16px}
+.stage{position:relative;aspect-ratio:16/9;max-height:640px;background:var(--lav);overflow:hidden;margin-top:32px;border:1px solid var(--line)}
+.slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.6s ease,visibility 0s 1.6s}
+.slide.on{opacity:1;visibility:visible;transition:opacity 1.6s ease,visibility 0s}
+.slide.s0{display:grid;grid-template-columns:1fr 31.6%;background:linear-gradient(120deg,#E8E1FF,#FFDCE5)}
+.slide .cap{align-self:center;padding:0 56px}
+.slide .tag{display:inline-block;padding:4px 12px;background:var(--ink);color:#fff;font-size:14px;font-weight:800;letter-spacing:-.3px}
+.slide .cap h2{font-size:38px;margin:16px 0 12px}
+.slide .cap p{max-width:420px;font-weight:600}
+.slide .vid{position:relative;height:100%;background:#14183a}
+.slide video{width:100%;height:100%;object-fit:cover}
+.slide.ph{display:grid;place-items:center;text-align:center;padding:24px}
+.slide.s1{background:linear-gradient(135deg,#FFDCE5,#FFE9D2)}
+.slide.s2{background:linear-gradient(135deg,#FFE9D2,#E8E1FF)}
+.slide.ph h2{font-size:42px}
+.slide.ph p{margin-top:10px;font-weight:600}
+.bar{max-width:var(--w);margin:0 auto;padding:12px 16px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.dots{display:flex;gap:8px}
+.dots button{width:28px;height:6px;padding:0;border:0;background:var(--line);cursor:pointer}
+.dots button[aria-current="true"]{background:var(--ink)}
+.dots button{position:relative}
+.dots button::after{content:"";position:absolute;inset:-18px -2px}
+.ctl{display:flex;gap:6px}
+.ctl button{width:44px;height:44px;display:grid;place-items:center;border:1px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer;padding:0}
+.ctl button:hover{background:var(--ink);color:#fff}
 
-/* 서비스 */
-.cards{display:grid;gap:14px}
-@media (min-width:760px){.cards{grid-template-columns:1fr 1fr;gap:20px}}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:var(--shadow)}
-.card .no{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--sky-soft);color:var(--sky);font-weight:700;font-size:14px;margin-bottom:14px}
-.card:nth-child(even) .no{background:var(--leaf-soft);color:var(--leaf)}
-.card h3{font-size:19px;font-weight:700;margin-bottom:6px}
-.card p{margin:0;color:var(--ink2)}
-.card .for{margin-top:12px;font-size:14px;color:var(--ink3)}
-.nope{margin-top:20px;padding:20px 24px;border-radius:16px;background:var(--bg-soft);border:1px solid var(--line)}
-.soft .nope{background:var(--card)}
-.nope h3{font-size:16px;font-weight:700;margin-bottom:6px}
-.nope ul{margin:0;padding-left:18px;color:var(--ink2);font-size:15px}
+/* 구간 공통 */
+section{padding:96px 0}
+.h2c{text-align:center;font-size:32px}
+.lead{text-align:center;margin:12px auto 0;max-width:620px;font-weight:600;color:var(--ink2)}
+.band{background:var(--band)}
 
-/* 무료 / 맡기시면 */
-.two{display:grid;gap:14px}
-@media (min-width:760px){.two{grid-template-columns:1fr 1fr;gap:20px}}
-.box{border-radius:16px;padding:28px 24px;border:1px solid var(--line);background:var(--card)}
-.box .pill{display:inline-block;font-size:13px;font-weight:700;padding:4px 10px;border-radius:8px;margin-bottom:12px}
-.box.free .pill{background:var(--leaf-soft);color:var(--leaf)}
-.box.paid .pill{background:var(--sky-soft);color:var(--sky)}
-.box h3{font-size:20px;font-weight:700;margin-bottom:12px}
-.box ul{margin:0;padding:0;list-style:none}
-.box li{padding:9px 0;border-top:1px solid var(--line);color:var(--ink2)}
-.box li b{color:var(--ink);font-weight:600}
-.moment{margin-top:22px;text-align:center;color:var(--ink2)}
+/* 최근 작업 */
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;align-items:start;margin-top:40px}
+.work figure{margin:0}
+.work .pic{position:relative;display:block;width:100%;overflow:hidden;padding:0;border:0;background:var(--lav)}
+.work .pic.r43{aspect-ratio:4/3}
+.work .pic.r34{aspect-ratio:3/4}
+.work .pic.r916{aspect-ratio:9/16}
+.work .pic.g1{background:linear-gradient(135deg,#FFE9D2,#FFDCE5)}
+.work .pic.g2{background:linear-gradient(135deg,#E8E1FF,#FFDCE5)}
+.work .pic.g3{background:linear-gradient(135deg,#FFDCE5,#E8E1FF)}
+.work .ph-t{position:absolute;inset:0;display:grid;place-content:center;text-align:center;font-size:20px;font-weight:800;letter-spacing:-1px;padding:12px}
+.work .ph-t small{display:block;margin-top:6px;font-size:14px;font-weight:600;letter-spacing:-.3px}
+.work img{width:100%;height:100%;object-fit:cover}
+button.pic{cursor:pointer}
+button.pic::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.5);opacity:0;transition:opacity .8s}
+button.pic:hover::after,button.pic:focus-visible::after{opacity:1}
+button.pic .play{position:absolute;z-index:2;inset:0;display:grid;place-items:center;color:#fff;opacity:0;transition:opacity .8s}
+button.pic:hover .play,button.pic:focus-visible .play{opacity:1}
+.work figcaption{padding-top:10px;font-size:15px;font-weight:700;letter-spacing:-.5px}
+.work figcaption span{display:block;font-weight:500;color:var(--ink2);font-size:14px}
+.works-note{text-align:center;margin-top:40px}
+.works-note p{font-weight:700;margin-bottom:16px}
 
-/* 진행 순서 */
-.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
-.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.steps li::before{content:counter(s);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--sky);color:var(--sky-ink);font-weight:700}
-.steps b{display:block;font-size:17px}
-.steps span{color:var(--ink2);font-size:15px}
-@media (min-width:900px){.steps{grid-template-columns:repeat(5,1fr)}.steps li{grid-template-columns:1fr}}
-.when{margin-top:18px;font-size:15px;color:var(--ink2)}
+/* 한 줄 소개 + 강점 */
+.one{font-size:26px;line-height:1.5;text-align:center;font-weight:800;letter-spacing:-1px}
+.hr{max-width:var(--w);margin:0 auto;border:0;border-top:1px solid var(--ink)}
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
+.feat div{text-align:center;padding:0 6px}
+.feat h3{font-size:24px}
+.feat svg{width:50px;height:50px;margin:18px auto}
+.feat p{font-size:16px;font-weight:600;line-height:1.65}
+
+/* 진행 방법 · 지그재그 */
+.steps{margin-top:56px;display:grid;gap:56px}
+.step{display:grid;grid-template-columns:repeat(12,1fr);align-items:start}
+.step .no{grid-column:1/span 6;grid-row:1;min-height:340px;display:flex;flex-direction:column;justify-content:space-between;padding:28px 32px}
+.step .no b{font-size:110px;line-height:1;font-weight:800;letter-spacing:-4px}
+.step .no svg{width:56px;height:56px}
+.step .card{grid-column:6/span 7;grid-row:1;margin-top:34px;position:relative;z-index:2;background:#fff;padding:40px 44px}
+.step:nth-child(even) .no{grid-column:7/span 6}
+.step:nth-child(even) .card{grid-column:1/span 7;margin-top:34px}
+.step:nth-child(even) .no{align-items:flex-end;text-align:right}
+.step:nth-child(1) .no{background:var(--pink)}
+.step:nth-child(2) .no{background:var(--peach)}
+.step:nth-child(3) .no{background:var(--lav)}
+.step:nth-child(4) .no{background:var(--pink)}
+.step:nth-child(5) .no{background:var(--peach)}
+.step h3{font-size:30px;margin-bottom:12px}
+.step p{font-weight:600}
+.step p+p{margin-top:8px;color:var(--ink2);font-size:15px}
+.steps-cta{text-align:center;margin-top:56px}
 
 /* 가격 */
-.prices{display:grid;gap:12px}
-@media (min-width:760px){.prices{grid-template-columns:repeat(4,1fr);gap:16px}}
-.price{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px}
-.price h3{font-size:15px;font-weight:600;color:var(--ink2)}
-.price .won{display:block;font-size:30px;font-weight:800;margin:6px 0 2px;letter-spacing:-.02em}
-.price .won small{font-size:16px;font-weight:600}
-.price p{margin:6px 0 0;font-size:14px;color:var(--ink3)}
-.caveat{margin-top:18px;font-size:14px;color:var(--ink2)}
+.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:44px;align-items:stretch}
+.price{display:flex;flex-direction:column;padding:34px 30px;border:1px solid var(--ink);background:var(--bg)}
+.price.hl{background:var(--grad);border-width:3px}
+.price .lab{font-size:15px;font-weight:800}
+.price h3{font-size:26px;margin:4px 0 14px}
+.price .amt{font-size:44px;font-weight:800;letter-spacing:-2px;line-height:1.1}
+.price .amt small{font-size:17px;letter-spacing:-.5px;font-weight:700;margin-left:4px}
+.price .per{margin-top:6px;font-size:15px;font-weight:700;min-height:26px}
+.price ul{list-style:none;margin:20px 0 26px;padding:20px 0 0;border-top:1px solid var(--ink);display:grid;gap:8px;flex:1}
+.price li{padding-left:22px;position:relative;font-weight:600}
+.price li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:10px;background:var(--ink)}
+.price .btn{width:100%}
+.notes{margin:36px auto 0;max-width:820px;display:grid;gap:10px}
+.notes p{padding:14px 18px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:15.5px}
+.notes b{font-weight:800}
 
-/* 묻는 것 */
-.faq details{max-width:760px}
-details{border-bottom:1px solid var(--line);padding:18px 4px}
-details:first-of-type{border-top:1px solid var(--line)}
-summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--sky);font-weight:400;font-size:22px;line-height:1}
-details[open] summary::after{content:"−"}
-details p{margin:10px 0 0;color:var(--ink2)}
+/* FAQ */
+.faq{max-width:var(--w);margin:44px auto 0;padding:0 16px}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;gap:14px;align-items:flex-start;padding:16px 10px;font-size:22px;font-weight:800;letter-spacing:-1px;line-height:1.4}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"+";flex:none;width:22px;font-weight:800}
+.faq details[open] summary::before{content:"−"}
+.faq details.hot summary{background:var(--pink)}
+.faq .ans{padding:2px 10px 24px 46px;max-width:880px;font-weight:500}
 
-/* 마지막 — 찾는 곳 */
-.ask{text-align:center}
-.ask h2 span{color:var(--sky)}
-.platforms{display:grid;gap:12px;max-width:560px;margin:0 auto}
-@media (min-width:600px){.platforms{grid-template-columns:1fr 1fr}}
-.plat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
-.plat b{display:block;font-size:20px;font-weight:800}
-.plat .search{display:inline-block;margin-top:8px;padding:6px 14px;border-radius:10px;background:var(--sky-soft);color:var(--sky);font-weight:600;font-size:15px}
-.plat .soon{display:block;margin-top:10px;font-size:13px;color:var(--ink3)}
-.ask .checks{justify-content:center;margin-top:22px}
+/* 신청 */
+.apply-box{margin:40px auto 0;max-width:760px;background:#fff;border:2px solid var(--ink);padding:40px;text-align:center}
+.apply-box p{font-weight:600}
+.apply-box .btn{margin-top:22px}
+.contact{display:grid;grid-template-columns:repeat(2,1fr);gap:15px;max-width:760px;margin:15px auto 0}
+.contact div{background:#fff;border:1px solid var(--line);padding:20px 22px}
+.contact h3{font-size:17px;margin-bottom:4px}
+.contact a,.contact span{font-weight:600;word-break:break-all}
+.privacy{max-width:760px;margin:15px auto 0;background:#fff;border:1px solid var(--line)}
+.privacy summary{cursor:pointer;padding:16px 22px;font-weight:800;font-size:17px}
+.privacy ul{margin:0;padding:0 22px 18px 42px;font-size:15px;font-weight:500}
+.privacy li{margin-bottom:4px}
 
-footer{padding:36px 0 52px;font-size:13px;color:var(--ink3);border-top:1px solid var(--line)}
-footer .biz{margin:10px 0;padding:10px 12px;border-radius:10px;border:1px dashed var(--line)}
-.hd-left{display:flex;align-items:center;gap:6px}
-.menu-btn{width:40px;height:40px;margin-left:-8px;border:0;background:transparent;color:var(--ink);border-radius:10px;display:grid;place-items:center;cursor:pointer}
-.menu-btn:hover{background:var(--line)}.menu-btn svg{width:22px;height:22px}
-.drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:20}
-.drawer{position:fixed;top:0;left:0;bottom:0;width:min(300px,84vw);background:var(--bg);z-index:21;box-shadow:4px 0 24px rgba(0,0,0,.15);padding:12px 16px;overflow-y:auto}
-.drawer-head{display:flex;align-items:center;justify-content:space-between;height:48px;margin-bottom:8px}
-.drawer-title{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--ink3)}
-.drawer-nav{display:flex;flex-direction:column}
-.drawer-nav .menu-item{display:flex;align-items:center;justify-content:space-between;padding:14px 8px;margin:0;line-height:1.4;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:17px;font-weight:600}
-.drawer-nav .menu-small{font-size:14px;font-weight:500;color:var(--ink2);border-bottom:0;padding:10px 8px}
-.menu-item[aria-current]{color:var(--sky)}.menu-out svg{width:15px;height:15px;opacity:.5}
+/* 바닥글 */
+footer{background:var(--dark);color:var(--peach)}
+footer .in{max-width:var(--w);margin:0 auto;padding:40px 16px;display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:24px;align-items:center}
+footer .brand img{width:44px;height:44px}
+footer .brand span{font-size:26px;color:#fff}
+footer .mid{font-weight:400;font-size:16px;line-height:1.8}
+footer .right{text-align:right;font-weight:400}
+footer a{color:inherit}
+footer .copy{background:var(--bg);color:var(--ink)}
+footer .copy div{max-width:var(--w);margin:0 auto;padding:10px 16px;font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+/* 사례 팝업 */
+dialog{border:0;padding:0;background:#000;max-width:min(92vw,420px);width:100%}
+dialog::backdrop{background:rgba(59,40,54,.7)}
+dialog video{width:100%;max-height:82vh;background:#000}
+dialog .x{position:absolute;top:0;right:0;z-index:2;width:44px;height:44px;border:0;background:var(--bg);color:var(--ink);font:800 20px/1 Pretendard,sans-serif;cursor:pointer}
+
+/* 폰·좁은 화면 */
+@media (max-width:1000px){
+  .feat{grid-template-columns:repeat(2,1fr);gap:36px 20px}
+  .works{grid-template-columns:repeat(2,1fr);gap:10px}
+  .prices{grid-template-columns:1fr}
+  footer .in{grid-template-columns:1fr;text-align:left}
+  footer .right{text-align:left}
+}
+@media (max-width:860px){
+  .burger{display:block}
+  nav.main{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border-top:1px solid var(--line);border-bottom:1px solid var(--ink);padding:6px 16px 16px}
+  nav.main.open{display:flex}
+  nav.main a{padding:0;min-height:48px;display:flex;align-items:center;border-bottom:1px solid var(--line);font-size:18px}
+  nav.main a.cta{margin:12px 0 0;justify-content:center;border:0}
+  .step{display:block}
+  .step .no,.step:nth-child(even) .no{min-height:150px;padding:16px 20px 44px;flex-direction:row;align-items:flex-start;text-align:left}
+  .step .no b{font-size:72px;letter-spacing:-3px}
+  .step .no svg{width:44px;height:44px}
+  .step .card,.step:nth-child(even) .card{margin:-28px 12px 0 12px;padding:24px 20px}
+  .step h3{font-size:24px}
+  .steps{gap:40px}
+}
+@media (max-width:720px){
+  header.top{height:56px}
+  .brand img{width:34px;height:34px}
+  .brand span{font-size:22px}
+  .hero{padding:40px 0 44px}
+  .hero h1{font-size:34px;letter-spacing:-1.2px}
+  .hero .sub{font-size:16.5px;margin:16px auto 24px}
+  .hero .btns .btn{flex:1 1 100%}
+  section{padding:64px 0}
+  .h2c{font-size:28px}
+  .stage-wrap{padding:0}
+  .stage{aspect-ratio:4/5;max-height:none;margin-top:24px;border-left:0;border-right:0}
+  .slide.s0{display:block}
+  .slide .vid{position:absolute;inset:0;aspect-ratio:auto}
+  .slide.s0 .cap{z-index:2;position:absolute;left:0;right:0;bottom:0;padding:40px 16px 16px;color:#fff;background:linear-gradient(to top,rgba(20,16,40,.85),rgba(20,16,40,0))}
+  .slide.s0 .cap h2{font-size:24px;margin:10px 0 6px}
+  .slide.s0 .cap p{font-size:14.5px}
+  .slide.s0 .tag{background:#fff;color:var(--ink)}
+  .slide.ph h2{font-size:30px}
+  .one{font-size:22px}
+  .feat{grid-template-columns:1fr;gap:34px}
+  .feat h3{font-size:22px}
+  .price{padding:26px 20px}
+  .price .amt{font-size:38px}
+  .faq summary{font-size:19px;padding:14px 4px}
+  .faq .ans{padding:0 4px 20px 40px}
+  .apply-box{padding:28px 18px}
+  .btn.big{width:100%;padding:0 16px;font-size:18px}
+  .contact{grid-template-columns:1fr}
+  footer .copy div{flex-direction:column;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .slide,.slide.on{transition:none}
+  button.pic::after,button.pic .play{transition:none}
+}
+
+/* ===== 몽글몽글 움직임 (transform·opacity만 · 탭이 숨겨지면 멈춤 · 움직임 줄이기 설정이면 끔) ===== */
+body{position:relative}
+.bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg i{position:absolute;display:block;border-radius:50%;opacity:.85;will-change:transform;
+  background:radial-gradient(circle at 50% 50%,var(--c) 0%,var(--c) 28%,rgba(255,255,255,0) 70%);
+  animation:drift var(--t) ease-in-out infinite alternate;animation-delay:var(--d)}
+.bg i:nth-child(1){--c:#FFDCE5;--t:28s;--d:-6s;width:520px;height:520px;left:-140px;top:6%}
+.bg i:nth-child(2){--c:#E8E1FF;--t:40s;--d:-18s;width:600px;height:600px;right:-200px;top:30%}
+.bg i:nth-child(3){--c:#FFE9D2;--t:32s;--d:-11s;width:480px;height:480px;left:18%;bottom:-160px}
+.bg i:nth-child(4){--c:#FFDCE5;--t:36s;--d:-24s;width:420px;height:420px;right:12%;top:-120px;opacity:.55}
+.bg i:nth-child(5){--c:#E8E1FF;--t:30s;--d:-3s;width:380px;height:380px;left:-100px;bottom:8%;opacity:.55}
+@keyframes drift{
+  0%{transform:translate3d(0,0,0) scale(1)}
+  33%{transform:translate3d(60px,-44px,0) scale(1.08)}
+  66%{transform:translate3d(-36px,52px,0) scale(.94)}
+  100%{transform:translate3d(48px,24px,0) scale(1.05)}
+}
+header.top,main,footer{position:relative;z-index:1}
+header.top{background:rgba(255,252,250,.86)}
+.band{background:linear-gradient(135deg,rgba(255,238,242,.8) 0%,rgba(255,244,234,.8) 50%,rgba(243,239,255,.8) 100%)}
+
+/* 첫 화면: 천천히 번지는 색 + 떠오르는 방울 + 일렁이는 물결 */
+.hero{position:relative;overflow:hidden;isolation:isolate;background:#FFEFF3}
+.hero::before{content:"";position:absolute;z-index:-2;left:0;top:0;bottom:0;width:200%;
+  background:linear-gradient(100deg,#FFDCE5 0%,#FFE9D2 22%,#E8E1FF 50%,#FFDCE5 72%,#FFE9D2 100%);
+  animation:hueslide 36s ease-in-out infinite alternate;will-change:transform}
+@keyframes hueslide{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.hero .wrap{position:relative;z-index:1}
+.bubbles{position:absolute;inset:0;z-index:0;pointer-events:none}
+.bubbles span{position:absolute;bottom:-40px;display:block;width:var(--s);height:var(--s);border-radius:50%;
+  background:radial-gradient(circle at 32% 30%,rgba(255,255,255,.98),rgba(255,255,255,.55) 40%,rgba(255,200,215,.35) 100%);
+  border:1px solid rgba(255,255,255,.95);opacity:0;animation:rise var(--t) ease-in infinite;animation-delay:var(--d);will-change:transform,opacity}
+.bubbles span:nth-child(1){--s:26px;--t:15s;--d:0s;left:7%}
+.bubbles span:nth-child(2){--s:14px;--t:12s;--d:-4s;left:19%}
+.bubbles span:nth-child(3){--s:38px;--t:19s;--d:-9s;left:31%}
+.bubbles span:nth-child(4){--s:18px;--t:13s;--d:-2s;left:46%}
+@keyframes rise{
+  0%{transform:translate3d(0,0,0) scale(.7);opacity:0}
+  14%{opacity:.85}
+  50%{transform:translate3d(14px,-190px,0) scale(1)}
+  100%{transform:translate3d(-12px,-420px,0) scale(1.12);opacity:0}
+}
+.wave{position:absolute;left:0;bottom:-1px;width:100%;height:34px;overflow:hidden;z-index:0;pointer-events:none}
+.wave svg{display:block;max-width:none;width:200%;height:100%;animation:waveflow 14s linear infinite;will-change:transform}
+@keyframes waveflow{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.hero h1{animation:float 7s ease-in-out infinite;will-change:transform}
+@keyframes float{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-6px,0)}}
+
+/* 스크롤하면 둥실 떠오르며 나타나요 */
+.rv{opacity:0;transform:translate3d(0,26px,0) scale(.985);transition:opacity .9s ease,transform 1s cubic-bezier(.2,.8,.2,1);transition-delay:var(--rd,0s);will-change:transform,opacity}
+.rv.in{opacity:1;transform:none}
+.no-js .rv{opacity:1;transform:none}
+
+/* 멈춰 있는 듯 숨 쉬는 아이콘·카드 */
+.feat svg{animation:bob 5.5s ease-in-out infinite;animation-delay:var(--bd,0s)}
+.feat div:nth-child(2) svg{--bd:-1.4s}.feat div:nth-child(3) svg{--bd:-2.8s}.feat div:nth-child(4) svg{--bd:-4.1s}
+@keyframes bob{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(0,-7px,0) rotate(2deg)}}
+.step .no svg{animation:bob 6.5s ease-in-out infinite}
+.step:nth-child(even) .no svg{animation-delay:-3s}
+.price.hl{animation:breathe 6s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.006)}}
+
+/* 만져 보면 살짝 흔들려요 */
+@media (hover:hover){
+  .btn:hover,nav.main a.cta:hover{animation:wobble .7s ease-in-out}
+  .svc:hover,.work .pic:hover,.price:hover,.contact div:hover{animation:wobble .8s ease-in-out}
+  .feat div:hover svg{animation:wobble .8s ease-in-out}
+}
+@keyframes wobble{0%{transform:rotate(0) scale(1)}25%{transform:rotate(-.6deg) scale(1.012)}50%{transform:rotate(.5deg) scale(1.015)}75%{transform:rotate(-.25deg) scale(1.007)}100%{transform:rotate(0) scale(1)}}
+
+/* 만드는 영상 */
+#services{padding-top:72px}
+.svcs{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:40px;align-items:stretch}
+.svc{position:relative;display:flex;flex-direction:column;overflow:hidden;padding:30px 24px 26px;background:#fff;border:1px solid var(--ink)}
+.svc .ic{width:64px;height:64px;margin-bottom:14px;color:var(--ink)}
+.svc .ic svg{width:64px;height:64px;animation:bob 6s ease-in-out infinite}
+.svc h3{font-size:24px;margin-bottom:8px}
+.svc p{font-weight:600;font-size:15.5px;line-height:1.65}
+.svc .kind{display:inline-block;align-self:flex-start;margin-bottom:12px;padding:3px 10px;font-size:13px;font-weight:800;border:1px solid var(--ink)}
+.svc.store{background:linear-gradient(160deg,#fff 0%,#FFF4EA 100%)}
+.svc.event{background:#FFFBF2;border-color:#CDB89A}
+.svc.event .ic{color:#7A5C52}
+.svc.event .kind{border-color:#CDB89A;color:#7A5C52;background:#FFF6E3}
+.svc.event::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,244,214,.95) 0%,rgba(255,244,214,0) 68%);animation:glow 7s ease-in-out infinite alternate}
+.svc.event:nth-child(3)::after{animation-delay:-2.3s}.svc.event:nth-child(4)::after{animation-delay:-4.6s}
+@keyframes glow{from{opacity:.45;transform:scale(.95)}to{opacity:.85;transform:scale(1.05)}}
+.svc > *{position:relative;z-index:1}
+.svcs-note{max-width:760px;margin:30px auto 0;text-align:center;font-weight:700}
+
+/* 행사 영상 사례 자리 (실제 손님 얼굴·영상은 허락받은 것만 올려요) */
+.works-sub{margin-top:64px;text-align:center;font-size:26px}
+.works.ev{grid-template-columns:repeat(3,1fr);max-width:880px;margin-left:auto;margin-right:auto}
+.work .pic.ivory{background:linear-gradient(160deg,#FFFBF2 0%,#FFF1DA 55%,#FFF7EC 100%)}
+.work .pic.ivory .flower{position:absolute;left:38%;top:12%;width:24%;color:#CDB89A;opacity:.8;animation:bob 7s ease-in-out infinite}
+.work .pic.ivory::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 78% 18%,rgba(255,247,222,.95),rgba(255,247,222,0) 55%);animation:glow 8s ease-in-out infinite alternate}
+.work .pic.ivory .ph-t{top:auto;height:44%;bottom:0;place-content:center}
+
+/* 폰 */
+@media (max-width:1000px){
+  .svcs{grid-template-columns:repeat(2,1fr)}
+  nav.main a{padding:6px 11px}
+}
+@media (max-width:720px){
+  .svcs{grid-template-columns:1fr}
+  .svc{padding:24px 20px 22px}
+  .svc .ic,.svc .ic svg{width:54px;height:54px}
+  .works.ev{grid-template-columns:repeat(1,1fr);max-width:340px}
+  .works-sub{font-size:23px;margin-top:48px}
+  .bg i{opacity:.55}
+  .bubbles span:nth-child(n+4){display:none}
+  .bg i:nth-child(n+4){display:none}
+}
+
+/* 탭이 숨겨지거나 화면 밖이면 멈춰요 */
+.paused .bg i,.paused .bubbles span,.paused .wave svg,.paused .hero::before,.paused .hero h1,.paused .feat svg,.paused .svc .ic svg,.paused .svc.event::after,.paused .price.hl,.paused .step .no svg,.paused .work .pic.ivory .flower,.paused .work .pic.ivory::before{animation-play-state:paused}
+.hero:not(.live)::before,.hero:not(.live) .bubbles span,.hero:not(.live) .wave svg,.hero:not(.live) h1{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){
+  .bg i,.bubbles span,.wave svg,.hero::before,.hero h1,.feat svg,.svc .ic svg,.svc.event::after,.price.hl,.step .no svg,.work .pic.ivory .flower,.work .pic.ivory::before{animation:none!important}
+  .bubbles{display:none}
+  .rv{opacity:1;transform:none;transition:none}
+  .btn:hover,.svc:hover,.work .pic:hover,.price:hover,.contact div:hover,.feat div:hover svg{animation:none!important}
+}
 </style>
+
 </head>
 <body>
 
-<header>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+
+<header class="top">
   <div class="wrap">
-    <div class="hd-left"><button class="menu-btn" type="button" id="menu-open" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-    <a class="logo" href="#top"><i aria-hidden="true"></i>몽글몽글필름</a></div>
-    <div class="hd-right">
-      <nav aria-label="바로가기">
-        <a href="#services">맡길 수 있는 일</a>
-        <a href="#flow">진행</a>
-        <a href="#price">가격</a>
-        <a href="#faq">묻는 것</a>
-      </nav>
-      <a class="hd-btn" href="#ask">상담 받는 곳</a>
-    </div>
+    <a class="brand" href="#top" aria-label="몽글몽글필름 처음으로">
+      <img src="img/logo-512.png" width="40" height="40" alt="몽글몽글필름 로고">
+      <span>몽글몽글필름</span>
+    </a>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M3 7h20M3 13h20M3 19h20"/></svg>
+    </button>
+    <nav class="main" id="menu" aria-label="주 메뉴">
+      <a href="#services">영상 종류</a>
+      <a href="#works">작업 사례</a>
+      <a href="#process">진행 방법</a>
+      <a href="#price">가격</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a class="cta" href="#form" data-form data-todo="google-form-url">신청하기</a>
+    </nav>
   </div>
 </header>
-<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
-<div class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="drawer-title">
-  <div class="drawer-head"><span class="drawer-title" id="drawer-title">MENU</span><button class="menu-btn" type="button" id="menu-close" aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
-  <nav class="drawer-nav" aria-label="yesterdigest.com 메뉴">
-      <a class="menu-item" href="/">어제한입</a>
-      <a class="menu-item" href="/#editions">지난 편</a>
-      <a class="menu-item" href="/#growth">채널 성장</a>
-      <a class="menu-item" href="/ohora/">오호라 <span class="menu-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></a>
-      <a class="menu-item" href="/mongle/" aria-current="page">몽글몽글필름</a>
-      <a class="menu-item" href="/cv/">CV <span class="menu-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></a>
-      <a class="menu-item menu-small" href="/privacy/">개인정보처리방침</a>
-      <a class="menu-item menu-small" href="/terms/">이용약관</a>
-  </nav>
-</div>
-
 
 <main id="top">
 
-<!-- 1. 첫 화면: 누구의 일인가 + 왜 우리인가 · 오른쪽에 실제 결과물 -->
-<section class="hero" id="example">
+<!-- 첫 화면 -->
+<div class="hero" id="hero">
+  <div class="bubbles" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
   <div class="wrap">
-    <div>
-      <span class="eyebrow">작은 영상 공방</span>
-      <h1>사진·영상만 보내 주세요.<br><span>보기 좋게</span> 만들어 드릴게요.</h1>
-      <p class="sub">자르고, 자막을 얹고, 음악을 맞추는 일. 시간이 없거나 편집 프로그램이 낯선 분 대신 몽글몽글필름이 차근차근 다듬어 드려요.</p>
-      <div class="btns">
-        <a class="btn main" href="#free">무료로 상담 받기</a>
-        <a class="btn sub" href="#flow">맡기는 방법</a>
-      </div>
-      <ul class="checks">
-        <li>상담·견적 무료</li>
-        <li>가입할 것 없음</li>
-        <li>만나거나 통화할 일 없음</li>
-      </ul>
+    <h1>동네 가게 홍보 영상,<br>한 달 단위로 맡아 드려요</h1>
+    <p class="sub">인테리어, 음식점, 청소 같은 가게 이야기를 짧은 영상으로 만들어 드려요. 식전 영상, 결혼식 영상, 돌잔치 영상도 만들어요. 사진만 보내 주세요.</p>
+    <div class="btns">
+      <a class="btn big" href="#form" data-form data-todo="google-form-url">신청하기</a>
+      <a class="btn big line" href="#price">가격 보기</a>
     </div>
-    <div>
-      <div class="phone">
-        <span class="badge">예시 영상</span>
-        <video src="media/book-short-v1.mp4" poster="media/book-short-poster.png" controls playsinline preload="none" aria-label="예시 영상: 60초 책 소개 쇼츠"></video>
-      </div>
-      <p class="caption">몽글몽글필름이 직접 만든 60초 책 소개 쇼츠</p>
-    </div>
+    <p class="mini">재료를 받고 보통 하루 안에 첫 영상을 보여 드려요</p>
   </div>
-</section>
+  <div class="wave" aria-hidden="true"><svg viewBox="0 0 2400 34" preserveAspectRatio="none"><path fill="#FFFCFA" opacity=".5" d="M0 20 C100 6 200 6 300 20 S500 34 600 20 S800 6 900 20 S1100 34 1200 20 S1400 6 1500 20 S1700 34 1800 20 S2000 6 2100 20 S2300 34 2400 20 V34 H0Z"/><path fill="#FFFCFA" d="M0 26 C100 16 200 16 300 26 S500 36 600 26 S800 16 900 26 S1100 36 1200 26 S1400 16 1500 26 S1700 36 1800 26 S2000 16 2100 26 S2300 36 2400 26 S2600 16 2700 26 V34 H0Z" transform="translate(-300 0)"/></svg></div>
+</div>
 
-<!-- 2. 예시 영상에서 보이는 것 -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="feats">
-      <div class="feat"><b>자막이 박자에 맞춰</b><span>중요한 말은 색을 입혀 눈에 걸리게</span></div>
-      <div class="feat"><b>세로·가로 모두</b><span>쇼츠·릴스용 세로, 화면용 가로 둘 다</span></div>
-      <div class="feat"><b>저작권 걱정 없는 음악</b><span>영상에 넣어 공개해도 된다고 허락된 곡만 써요</span></div>
-    </div>
-    <p class="credit">예시 영상 · 의뢰받은 작업이 아닌 소개용 작품이에요. 음악: 에릭 사티 «짐노페디 1번»(Musopen 녹음 · 퍼블릭 도메인 · 위키미디어 공용).</p>
-  </div>
-</section>
-
-<!-- 3. 맡길 수 있는 일 -->
-<section id="services" class="soft">
-  <div class="wrap">
-    <span class="eyebrow">맡길 수 있는 일</span>
-    <h2>잘 할 수 있는 네 가지만 받아요</h2>
-    <p class="lead">보내 주신 자료로, 메시지로만 주고받으며 만들어요.</p>
-    <div class="cards">
-      <article class="card">
-        <span class="no">01</span>
-        <h3>짧은 영상 컷·자막 편집</h3>
-        <p>휴대폰으로 찍은 10분 안쪽 영상을 보기 좋게 자르고 자막·음악을 넣어요.</p>
-        <p class="for">브이로그 · 가게 소개 · 강의 클립 · 가족 영상</p>
-      </article>
-      <article class="card">
-        <span class="no">02</span>
-        <h3>자막이 톡톡 튀는 쇼츠</h3>
-        <p>책 소개·제품 소개처럼 말과 자막이 주인공인 60초 안팎 세로 영상.</p>
-        <p class="for">책 소개 · 상품 소개 · 짧은 홍보</p>
-      </article>
-      <article class="card">
-        <span class="no">03</span>
-        <h3>결혼식 식전 영상 · 성장 영상</h3>
-        <p>사진과 몇 줄의 글만 보내 주시면, 두 분(또는 아이)의 이야기를 한 편으로 엮어요.</p>
-        <p class="for">식전 영상 · 돌·생일 성장 영상 · 감사 영상</p>
-      </article>
-      <article class="card">
-        <span class="no">04</span>
-        <h3>엑셀 자동화</h3>
-        <p>매번 손으로 하던 복사·정리·집계를 버튼 한 번으로. 영상은 아니지만 꼼꼼함은 같아요.</p>
-        <p class="for">반복 집계 · 서식 정리 · 매크로(VBA)</p>
-      </article>
-    </div>
-    <div class="nope">
-      <h3>이런 일은 받지 않아요</h3>
-      <ul>
-        <li>촬영·현장 방문 (보내 주신 자료로만 작업해요)</li>
-        <li>긴 행사 원본 전체 편집 · 3D·특수효과</li>
-        <li>본인이 직접 만들어야 하는 공모전·과제를 대신 만드는 일</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 4. 무료로 / 맡기시면 (하드 규칙 3) -->
-<section id="free">
-  <div class="wrap">
-    <span class="eyebrow">먼저 편하게</span>
-    <h2>맡길지 말지는 이야기 나눈 뒤에</h2>
-    <p class="lead">상담하고 시안을 보신 다음에 정하셔도 돼요.</p>
-    <div class="two">
-      <div class="box free">
-        <span class="pill">무료</span>
-        <h3>맡기기 전에</h3>
-        <ul>
-          <li><b>상담과 견적</b> — 어떤 영상인지, 얼마나 걸리는지</li>
-          <li><b>짧은 방향 시안</b> — 자막 느낌·색을 몇 초 분량으로 먼저</li>
-          <li><b>준비물 안내</b> — 사진 몇 장, 어떤 글이 필요한지</li>
-          <li><b>예시 영상</b> — 이 페이지에서 언제든 자유롭게</li>
-        </ul>
+<!-- 사례 영상 슬라이더 -->
+<div class="stage-wrap">
+  <div class="stage" id="stage" role="region" aria-roledescription="슬라이드" aria-label="작업 사례 영상">
+    <div class="slide s0 on" aria-hidden="false">
+      <div class="cap">
+        <span class="tag">몽글 소개</span>
+        <h2>몽글몽글필름 소개 영상</h2>
+        <p>제가 직접 만든 26초 소개 영상이에요. 움직이는 글자와 몽글몽글한 화면으로, 가게 영상도 이런 느낌으로 만들어 드려요.</p>
       </div>
-      <div class="box paid">
-        <span class="pill">맡기시면</span>
-        <h3>끝까지 완성해서</h3>
-        <ul>
-          <li><b>완성 영상 파일(MP4)</b> — 표시 없이, 바로 올리거나 틀 수 있게</li>
-          <li><b>수정 2회</b> — 순서·문구·음악을 원하시는 대로</li>
-          <li><b>사람이 한 번 더 확인</b> — 얼굴 잘림·오타·박자</li>
-          <li><b>두 가지 크기</b> — 필요하면 가로·세로 모두</li>
-        </ul>
+      <div class="vid">
+        <video id="sv" src="media/intro-v2-v.mp4" poster="media/intro-v2-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="몽글몽글필름 소개 영상 26초"></video>
       </div>
     </div>
-    <p class="moment">시안을 보시고 «이 느낌으로 끝까지 보고 싶다» 싶으실 때, 그때 맡겨 주세요.</p>
+    <div class="slide s1 ph" aria-hidden="true">
+      <div><h2>사례 준비 중</h2><p>허락해 주신 가게 영상부터 하나씩 올릴게요.</p></div>
+    </div>
+    <div class="slide s2 ph" aria-hidden="true">
+      <div><h2>사례 준비 중</h2><p>인테리어 · 음식점 · 청소 가게 영상과 식전 · 돌잔치 영상이 들어올 자리예요.</p></div>
+    </div>
   </div>
-</section>
+  <div class="bar">
+    <div class="dots" id="dots" role="group" aria-label="슬라이드 고르기">
+      <button type="button" aria-label="1번째 슬라이드" aria-current="true"></button>
+      <button type="button" aria-label="2번째 슬라이드"></button>
+      <button type="button" aria-label="3번째 슬라이드"></button>
+    </div>
+    <div class="ctl">
+      <button type="button" id="pp" aria-label="멈춤" title="멈춤">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" id="ic-pause"><rect x="3" y="2" width="4" height="14"/><rect x="11" y="2" width="4" height="14"/></svg>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor" id="ic-play" hidden><path d="M4 2l11 7-11 7z"/></svg>
+      </button>
+      <button type="button" id="prev" aria-label="이전 사례" title="이전">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M11 3L5 9l6 6"/></svg>
+      </button>
+      <button type="button" id="next" aria-label="다음 사례" title="다음">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M7 3l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
 
-<!-- 5. 진행 순서 -->
-<section id="flow" class="soft">
+<!-- 만드는 영상 -->
+<section id="services">
   <div class="wrap">
-    <span class="eyebrow">진행 순서</span>
-    <h2>메시지로만 주고받아요</h2>
-    <p class="lead">만나거나 통화할 일은 없어요.</p>
-    <ol class="steps">
-      <li><div><b>상담</b><span>원하시는 영상과 날짜를 알려 주세요.</span></div></li>
-      <li><div><b>자료 전달</b><span>사진·영상·글을 원본 화질 그대로 보내 주세요.</span></div></li>
-      <li><div><b>초안</b><span>보통 1~2일 안에 첫 초안을 보내 드려요.</span></div></li>
-      <li><div><b>수정 2회</b><span>순서·문구·음악을 고쳐요.</span></div></li>
-      <li><div><b>완성</b><span>영상 파일을 받으시면 끝.</span></div></li>
-    </ol>
-    <p class="when">일정은 영상 길이와 자료 양에 따라 달라요. 날짜가 정해진 일(예식 등)은 상담 때 먼저 말씀해 주세요.</p>
+    <h2 class="h2c rv">만들어 드리는 영상</h2>
+    <p class="lead rv">가게를 알리는 영상은 한 달 단위로, 행사 영상은 한 편씩 만들어요.</p>
+    <div class="svcs">
+      <div class="svc store rv" style="--rd:.0s">
+        <span class="kind">가게 · 한 달 단위</span>
+        <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><rect x="8" y="14" width="48" height="32"/><path d="M26 24l14 8-14 8z"/><path d="M20 54h24M32 46v8"/></svg></div>
+        <h3>가게 홍보 영상</h3>
+        <p>인테리어, 음식점, 청소 같은 가게를 알리는 30초~1분 영상이에요. 릴스·쇼츠 같은 세로 영상도, 가게 TV용 가로 영상도 만들어요.</p>
+      </div>
+      <div class="svc event rv" style="--rd:.12s">
+        <span class="kind">행사 · 한 편씩</span>
+        <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="26" r="5"/><path d="M32 21c-1-9 4-13 8-12 1 5-2 10-8 12zM37 26c8-3 14 0 14 5-5 3-11 1-14-5zM33 31c4 7 2 13-3 14-3-5-1-11 3-14zM27 31c-7 3-8 9-5 13 5-1 8-7 5-13zM27 26c-8-1-12 3-11 8 5 1 10-2 11-8z" transform="translate(0 -4)"/><path d="M32 40v16M32 50c-6-1-9-4-10-8M32 46c5-1 8-3 9-7"/></svg></div>
+        <h3>식전 영상</h3>
+        <p>예식이 시작되기 전에 화면으로 보여 드리는 영상이에요. 두 분의 사진과 짧은 글로 은은하게 만들어요.</p>
+      </div>
+      <div class="svc event rv" style="--rd:.24s">
+        <span class="kind">행사 · 한 편씩</span>
+        <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="38" r="13"/><circle cx="40" cy="38" r="13"/><path d="M32 8l4 6-4 5-4-5z"/><path d="M28 14h8"/></svg></div>
+        <h3>결혼식 영상</h3>
+        <p>예식장에서 틀어 드리는 소개 영상이나 감사 영상이에요. 보내 주신 사진과 영상으로 차분하게 이어 붙여요.</p>
+      </div>
+      <div class="svc event rv" style="--rd:.36s">
+        <span class="kind">행사 · 한 편씩</span>
+        <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M32 54V30"/><path d="M32 36c-9 0-14-5-14-14 9 0 14 5 14 14zM32 30c0-8 5-13 14-13 0 9-5 13-14 13z"/><path d="M14 54h36"/><path d="M12 10l2 4 4 2-4 2-2 4-2-4-4-2 4-2zM52 8l1.4 3 3 1.4-3 1.4L52 17l-1.4-3-3-1.4 3-1.4z"/></svg></div>
+        <h3>돌잔치 영상</h3>
+        <p>아이가 자란 모습을 사진으로 이어 만드는 성장 영상이에요. 돌잔치에서 한 번 틀어 드리는 영상이에요.</p>
+      </div>
+    </div>
+    <p class="svcs-note rv">촬영은 하지 않고, 보내 주신 사진과 영상으로 만들어요. 행사 영상은 구성에 따라 값이 달라서, 신청서를 보내 주시면 값과 날짜를 먼저 말씀드려요.</p>
   </div>
 </section>
 
-<!-- 6. 가격 -->
+<!-- 최근 작업 -->
+<section id="works">
+  <div class="wrap">
+    <h2 class="h2c rv">최근 작업</h2>
+    <p class="lead rv">가게 사장님이 허락해 주신 영상만 올려요.</p>
+    <div class="works">
+      <div class="work rv" style="--rd:0.0s">
+        <figure>
+          <div class="pic r43 g1"><div class="ph-t">사례 준비 중<small>인테리어 시공 소개 · 가로</small></div></div>
+          <figcaption>인테리어 시공 소개<span>가로 영상 · 준비 중</span></figcaption>
+        </figure>
+      </div>
+      <div class="work rv" style="--rd:0.1s">
+        <figure>
+          <button class="pic r916" type="button" data-full="media/book-short-v1.mp4" aria-label="견본 영상 보기: 책 소개 쇼츠 60초">
+            <img src="media/sample-poster.jpg" alt="책 소개 쇼츠 견본 영상의 한 장면. 밤하늘 위에 시집 표지와 자막이 보여요" loading="lazy" width="608" height="1080">
+            <span class="play"><svg width="56" height="56" viewBox="0 0 56 56" fill="currentColor"><path d="M16 8l32 20-32 20z"/></svg></span>
+          </button>
+          <figcaption>책 소개 쇼츠 (몽글 견본)<span>세로 영상 · 60초 · 눌러서 보기</span></figcaption>
+        </figure>
+      </div>
+      <div class="work rv" style="--rd:0.2s">
+        <figure>
+          <div class="pic r34 g2"><div class="ph-t">사례 준비 중<small>음식점 메뉴 소개 · 세로</small></div></div>
+          <figcaption>음식점 메뉴 소개<span>세로 영상 · 준비 중</span></figcaption>
+        </figure>
+      </div>
+      <div class="work rv" style="--rd:0.3s">
+        <figure>
+          <div class="pic r43 g3"><div class="ph-t">사례 준비 중<small>청소 전후 모습 · 가로</small></div></div>
+          <figcaption>청소 전후 모습<span>가로 영상 · 준비 중</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <h3 class="works-sub rv">행사 영상</h3>
+    <p class="lead rv">허락해 주신 영상이 생기면 이곳에 올려요. 두 분의 얼굴이나 아이 사진은 허락 없이 올리지 않아요.</p>
+    <div class="works ev">
+      <div class="work rv" style="--rd:.0s">
+        <figure>
+          <div class="pic r43 ivory"><svg class="flower" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="26" r="4"/><path d="M32 22c-1-8 3-12 7-11 1 5-2 9-7 11zM36 26c7-3 13 0 13 4-5 3-10 1-13-4zM33 30c4 6 2 12-3 13-3-4-1-10 3-13zM28 30c-6 3-7 8-4 12 5-1 7-6 4-12zM28 26c-7-1-11 3-10 7 5 1 9-2 10-7z" transform="translate(0 -3)"/><path d="M32 40v18"/></svg><div class="ph-t">사례 준비 중<small>식전 영상 · 가로</small></div></div>
+          <figcaption>식전 영상<span>가로 영상 · 준비 중</span></figcaption>
+        </figure>
+      </div>
+      <div class="work rv" style="--rd:.12s">
+        <figure>
+          <div class="pic r43 ivory"><svg class="flower" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="38" r="13"/><circle cx="40" cy="38" r="13"/><path d="M32 8l4 6-4 5-4-5z"/></svg><div class="ph-t">사례 준비 중<small>결혼식 영상 · 가로</small></div></div>
+          <figcaption>결혼식 영상<span>가로 영상 · 준비 중</span></figcaption>
+        </figure>
+      </div>
+      <div class="work rv" style="--rd:.24s">
+        <figure>
+          <div class="pic r43 ivory"><svg class="flower" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M32 54V30"/><path d="M32 36c-9 0-14-5-14-14 9 0 14 5 14 14zM32 30c0-8 5-13 14-13 0 9-5 13-14 13z"/><path d="M14 54h36"/></svg><div class="ph-t">사례 준비 중<small>돌잔치 영상 · 가로</small></div></div>
+          <figcaption>돌잔치 영상<span>가로 영상 · 준비 중</span></figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="works-note">
+      <p>우리 가게 영상은 어떨까 궁금하시면, 신청서에 참고하고 싶은 영상 주소를 적어 주세요.</p>
+      <a class="btn" href="#form" data-form data-todo="google-form-url">신청하기</a>
+    </div>
+  </div>
+</section>
+
+<hr class="hr">
+
+<!-- 한 줄 소개 · 강점 -->
+<section id="about" style="padding-top:64px">
+  <div class="wrap">
+    <p class="one rv">사장님은 가게 일에 집중하세요.<br>영상은 제가 한 달 단위로 맡을게요.</p>
+    <div class="feat">
+<div class="rv" style="--rd:0.00s">
+        <h3>빠른 첫 초안</h3>
+        <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><rect x="6" y="6" width="38" height="38"/><path d="M25 14v12l9 6"/></svg>
+        <p>재료를 받고 보통 하루 안에 첫 영상을 보여 드려요.</p>
+      </div>
+<div class="rv" style="--rd:0.12s">
+        <h3>사장님은 사진만</h3>
+        <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><rect x="5" y="11" width="40" height="30"/><circle cx="25" cy="26" r="8"/><path d="M17 11l3-5h10l3 5"/></svg>
+        <p>가게 사진과 짧은 영상만 보내 주세요. 글과 음악은 제가 맞춰요.</p>
+      </div>
+<div class="rv" style="--rd:0.24s">
+        <h3>수정 1회 무료</h3>
+        <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><path d="M8 42l3-11L33 9l8 8-22 22z"/><path d="M28 14l8 8"/></svg>
+        <p>영상마다 한 번은 무료로 고쳐 드려요. 받아 보시고 말씀해 주세요.</p>
+      </div>
+<div class="rv" style="--rd:0.36s">
+        <h3>투명한 가격</h3>
+        <svg viewBox="0 0 50 50" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square" aria-hidden="true"><rect x="6" y="6" width="38" height="38"/><path d="M14 17l5 16 6-12 6 12 5-16M13 25h24"/></svg>
+        <p>월 4편 15만 원, 한 편 4만 원. 가격은 아래에 다 적어 두었어요.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 진행 방법 -->
+<section id="process" class="band">
+  <div class="wrap">
+    <h2 class="h2c rv">진행 방법</h2>
+    <p class="lead rv">신청서 하나로 시작해요. 만나거나 통화할 일은 없어요.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="no"><b>1</b><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><rect x="10" y="6" width="36" height="44"/><path d="M18 18h20M18 27h20M18 36h12"/></svg></div>
+        <div class="card rv">
+          <h3>신청서 쓰기</h3>
+          <p>가게 이름(또는 성함), 하는 일, 원하는 영상, 참고하고 싶은 영상 주소를 적어 주세요. 식전·결혼식·돌잔치 영상이면 행사 날짜도 적어 주세요. 질문은 19개이고, 모르는 칸은 «모르겠어요»라고 적으셔도 돼요.</p>
+          <p>어떤 영상이 좋을지는 신청서를 보고 제가 같이 정리해 드려요.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no"><b>2</b><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><rect x="6" y="14" width="44" height="32"/><circle cx="20" cy="26" r="4"/><path d="M6 40l14-10 12 8 8-6 10 8"/></svg></div>
+        <div class="card rv">
+          <h3>재료 보내기</h3>
+          <p>가게 사진과 짧은 영상을 보내 주세요. 메일이나 MYBOX 중 편한 쪽으로요. 어렵게 느껴지시면 보내는 방법을 천천히 안내해 드려요.</p>
+          <p>휴대폰으로 찍은 사진도 괜찮아요. 넣고 싶은 말이나 가게 이름이 있으면 같이 알려 주세요.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no"><b>3</b><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><rect x="6" y="10" width="44" height="36"/><path d="M23 20l14 8-14 8z"/></svg></div>
+        <div class="card rv">
+          <h3>미리보기 보기</h3>
+          <p>재료를 받고 보통 하루 안에 첫 영상을 보여 드려요. 앞부분을 워터마크를 넣어 먼저 보여 드리니, 마음에 드는지 보고 정하시면 돼요.</p>
+          <p>일이 몰릴 때는 먼저 날짜를 말씀드릴게요.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no"><b>4</b><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><rect x="6" y="14" width="44" height="28"/><path d="M6 22h44M14 34h10"/></svg></div>
+        <div class="card rv">
+          <h3>결제하기</h3>
+          <p>미리보기가 마음에 드시면 결제해 주세요. 계좌이체, 카카오페이, 토스 송금으로 받아요.</p>
+          <p>카드 결제와 세금계산서·현금영수증은 어려워요.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="no"><b>5</b><svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" aria-hidden="true"><path d="M28 8v28M16 26l12 12 12-12M10 46h36"/></svg></div>
+        <div class="card rv">
+          <h3>완성본 받기</h3>
+          <p>완성한 영상을 다운로드 링크로 보내 드려요. 고칠 곳이 있으면 영상마다 한 번은 무료로 고쳐 드려요.</p>
+          <p>한 달 단위로 맡기시면 다음 영상도 같은 순서로 이어서 만들어요.</p>
+        </div>
+      </div>
+    </div>
+    <div class="steps-cta">
+      <a class="btn big" href="#form" data-form data-todo="google-form-url">신청하기</a>
+    </div>
+  </div>
+</section>
+
+<!-- 가격 -->
 <section id="price">
   <div class="wrap">
-    <span class="eyebrow">시작 가격</span>
-    <h2>자료를 보고 정확히 알려 드려요</h2>
-    <p class="lead">아래는 시작 가격이에요. 길이와 자료 양에 따라 상담 때 정해요.</p>
+    <h2 class="h2c rv">가격</h2>
+    <p class="lead rv">숨기는 비용 없이 다 적어 두었어요.</p>
     <div class="prices">
-      <div class="price"><h3>짧은 영상 편집</h3><span class="won">30,000<small>원~</small></span><p>10분 안쪽 원본 · 컷·자막·음악</p></div>
-      <div class="price"><h3>자막 쇼츠</h3><span class="won">50,000<small>원~</small></span><p>60초 안팎 세로 영상</p></div>
-      <div class="price"><h3>식전·성장 영상</h3><span class="won">39,000<small>원~</small></span><p>사진 30장까지 · 약 2분</p></div>
-      <div class="price"><h3>엑셀 자동화</h3><span class="won" style="font-size:26px">상담 후</span><p>작업 범위를 보고 정해요</p></div>
+      <div class="price hl rv">
+        <span class="lab">한 달 단위로 맡기실 때</span>
+        <h3>한 달 4편</h3>
+        <div class="amt">150,000<small>원 / 월</small></div>
+        <div class="per">한 편에 37,500원</div>
+        <ul>
+          <li>30초~1분 영상 4편</li>
+          <li>영상마다 1회 무료 수정</li>
+          <li>한 달씩 정해서 진행</li>
+        </ul>
+        <a class="btn" href="#form" data-form data-todo="google-form-url">신청하기</a>
+      </div>
+      <div class="price rv" style="--rd:.12s">
+        <span class="lab">한 번만 맡길 때</span>
+        <h3>한 편</h3>
+        <div class="amt">40,000<small>원</small></div>
+        <div class="per">&nbsp;</div>
+        <ul>
+          <li>30초~1분 영상 1편</li>
+          <li>1회 무료 수정</li>
+        </ul>
+        <a class="btn line" href="#form" data-form data-todo="google-form-url">신청하기</a>
+      </div>
+      <div class="price rv" style="--rd:.24s">
+        <span class="lab">필요할 때만</span>
+        <h3>추가 수정</h3>
+        <div class="amt">15,000<small>원 / 1회</small></div>
+        <div class="per">&nbsp;</div>
+        <ul>
+          <li>무료 수정 1회를 쓰신 뒤에 한 번 더 고칠 때</li>
+          <li>문구, 순서, 음악처럼 작은 수정이에요</li>
+        </ul>
+        <a class="btn line" href="#faq">수정이 궁금해요</a>
+      </div>
     </div>
-    <p class="caveat">첫 의뢰 가격이에요. 후기가 쌓이면 바뀔 수 있어요. 의뢰와 결제는 크몽·숨고 안에서 진행돼요.</p>
+    <div class="notes">
+      <p><b>긴 영상</b>은 1분에 10,000원을 기준으로, 길이를 보고 알려 드려요.</p>
+      <p><b>결제</b>는 계좌이체, 카카오페이, 토스 송금으로 받아요. 미리보기를 보시고 마음에 드실 때 결제해 주세요.</p>
+      <p><b>식전·결혼식·돌잔치 영상</b>은 길이와 구성에 따라 값이 달라서, 신청서를 보고 값을 먼저 말씀드려요. 정해진 뒤에 결제해 주세요.</p>
+      <p><b>촬영</b>은 하지 않아요. 보내 주신 사진과 영상으로 만들어요.</p>
+    </div>
   </div>
 </section>
 
-<!-- 7. 자주 묻는 것 -->
-<section id="faq" class="soft">
-  <div class="wrap faq">
-    <span class="eyebrow">자주 묻는 것</span>
-    <h2 style="margin-bottom:28px">궁금하신 것</h2>
-    <details><summary>제가 고른 노래를 넣을 수 있나요?</summary><p>영상에 넣어 공개해도 된다고 허락된 곡만 써요. 유명 가요는 저작권자의 허락 없이 영상에 넣을 수 없어서 쓰지 않아요. 분위기에 맞는 곡을 추천해 드릴게요.</p></details>
-    <details><summary>휴대폰 사진·영상도 괜찮나요?</summary><p>네. 다만 메신저로 보내면 화질이 줄 수 있어 «원본으로 보내기»를 권해 드려요.</p></details>
-    <details><summary>보낸 사진은 어떻게 되나요?</summary><p>작업에만 쓰고, 완성 뒤 30일 안에 저희 쪽 파일을 지워요. 허락 없이 다른 곳에 쓰지 않아요.</p></details>
-    <details><summary>사진 속 다른 사람 얼굴이 있어도 되나요?</summary><p>보내 주시는 사진·영상은 쓰실 권리가 있는 것이어야 해요. 함께 찍힌 분들께는 미리 물어봐 주세요.</p></details>
-    <details><summary>공모전에 낼 영상도 되나요?</summary><p>공모전 규칙에 «본인이 직접 제작»이 있으면 맡아 드릴 수 없어요. 상담 때 규칙을 함께 확인해요.</p></details>
-  </div>
-</section>
-
-<!-- 8. 마지막: 찾는 곳 -->
-<section class="ask" id="ask">
+<!-- 자주 묻는 질문 -->
+<section id="faq" class="band">
   <div class="wrap">
-    <h2>상담은 <span>크몽·숨고</span>에서 받아요</h2>
-    <p class="lead">두 곳 모두 «몽글몽글필름»으로 찾으실 수 있어요.</p>
-    <div class="platforms">
-      <div class="plat">
-        <b>크몽</b>
-        <span class="search">«몽글몽글필름» 검색</span>
-        <span class="soon">바로가기 주소는 준비 중이에요</span>
-        <!-- TODO: 크몽 서비스 등록 뒤 실제 주소로 교체 (가짜 링크 금지) -->
+    <h2 class="h2c rv">자주 묻는 질문</h2>
+  </div>
+  <div class="faq">
+    <details>
+      <summary>어떤 영상을 만들어 주나요?</summary>
+      <div class="ans">가게를 알리는 짧은 영상이 가장 많아요. 인스타 릴스나 유튜브 쇼츠 같은 세로 영상이 많고, 가게 TV나 소개용 가로 영상도 만들어요. 길이는 30초~1분이 기본이에요. 인테리어, 음식점, 청소처럼 동네에서 가게를 하시는 분들이 한 달에 몇 편씩 꾸준히 올리고 싶을 때 잘 맞아요. 결혼식 식전 영상, 결혼식 영상, 돌잔치 영상도 만들어요.</div>
+    </details>
+    <details>
+      <summary>식전 영상, 결혼식 영상, 돌잔치 영상도 만들어 주나요?</summary>
+      <div class="ans">네, 만들어요. 식전 영상은 예식 시작 전에 화면으로 보여 드리는 영상이고, 결혼식 영상은 예식장에서 틀어 드리는 소개 영상이나 감사 영상이에요. 돌잔치 영상은 아이가 자란 모습을 사진으로 이어 만드는 성장 영상이에요. 모두 보내 주신 사진과 영상으로 만들고, 촬영은 하지 않아요. 분위기는 신청서에서 «차분하게»나 «고급스럽게»처럼 골라 주시면 맞춰요.</div>
+    </details>
+    <details>
+      <summary>행사 영상은 값이 어떻게 되나요?</summary>
+      <div class="ans">길이와 구성에 따라 달라서 정해진 값을 적어 두지 않았어요. 신청서에 행사와 날짜, 가지고 계신 사진 수를 적어 주시면 값과 만들 수 있는 날짜를 먼저 말씀드려요. 마음에 드시면 그때 결제해 주세요. 영상마다 한 번은 무료로 고쳐 드려요.</div>
+    </details>
+    <details>
+      <summary>행사 날짜가 가까운데 맡길 수 있나요?</summary>
+      <div class="ans">행사 날짜가 정해지면 바로 신청서에 적어 주세요. 일정을 보고 맞출 수 있는 날짜를 먼저 말씀드려요. 일정이 맞지 않으면 그때 솔직하게 말씀드릴게요. 행사에서 틀어야 하는 영상은 날짜에 쫓겨 서두르지 않고, 넉넉한 날짜로 약속해요.</div>
+    </details>
+    <details>
+      <summary>결혼식·돌잔치 영상에는 어떤 사진이 좋나요?</summary>
+      <div class="ans">휴대폰으로 찍은 사진이면 돼요. 얼굴이 또렷하게 나온 사진과 함께한 장소 사진이 섞여 있으면 좋아요. 몇 장이 좋을지는 영상 길이에 따라 달라서 신청서를 보고 알려 드려요. 두 분이나 아이의 사진은 영상을 만드는 데에만 쓰고, 다른 곳에 올릴 때는 먼저 여쭤 봐요.</div>
+    </details>
+    <details>
+      <summary>사진이나 영상은 얼마나 보내야 하나요?</summary>
+      <div class="ans">휴대폰으로 찍은 사진 여러 장과 짧은 영상이 있으면 시작할 수 있어요. 부족하면 어떤 걸 더 보내 주시면 좋을지 알려 드려요. 촬영하러 가지는 못하고, 보내 주신 재료로만 만들어요.</div>
+    </details>
+    <details>
+      <summary>가격은 어떻게 되나요?</summary>
+      <div class="ans">가게 홍보 영상은 한 달에 4편이 15만 원, 한 편만 맡기시면 4만 원이에요. 둘 다 30초~1분 영상 기준이에요. 영상마다 한 번은 무료로 고쳐 드려요. 5분이 넘는 긴 영상은 1분에 1만 원을 기준으로, 길이를 보고 알려 드려요. 식전·결혼식·돌잔치 영상은 구성에 따라 달라서 신청서를 보고 값을 먼저 말씀드려요.</div>
+    </details>
+    <details class="hot" open>
+      <summary>결제는 어떻게 하나요?</summary>
+      <div class="ans">결제는 계좌이체, 카카오페이, 토스 송금으로 받아요. 카드 결제와 세금계산서·현금영수증은 어려워요. 미리보기를 보시고 마음에 드실 때 결제해 주세요.</div>
+    </details>
+    <details>
+      <summary>세금계산서나 현금영수증이 꼭 필요하면요?</summary>
+      <div class="ans">발행이 어려워요. 증빙이 꼭 필요하신 경우에는 신청하시기 전에 카카오톡 채널로 먼저 물어봐 주세요.</div>
+    </details>
+    <details>
+      <summary>수정은 몇 번까지 되나요?</summary>
+      <div class="ans">영상마다 한 번은 무료예요. 그 뒤에 한 번 더 고치실 때는 1회 15,000원이에요. 문구, 순서, 음악 정도의 수정이 대상이에요. 영상 전체의 모양이나 컨셉을 바꾸시는 건 새로 만드는 일이라, 수정이 아니라 새 영상으로 이야기해요.</div>
+    </details>
+    <details>
+      <summary>얼마나 걸리나요?</summary>
+      <div class="ans">재료를 받고 보통 하루 안에 첫 영상을 보여 드려요. 일이 몰려서 늦어질 때는 먼저 날짜를 말씀드려요.</div>
+    </details>
+    <details>
+      <summary>한 달 단위는 어떻게 진행되나요?</summary>
+      <div class="ans">한 달에 4편을 순서대로 만들어요. 재료를 나눠서 보내 주셔도 돼요. 한 달씩 정해서 진행하고, 다음 달은 그때 다시 이야기해요.</div>
+    </details>
+    <details>
+      <summary>영상은 어디에 쓸 수 있나요?</summary>
+      <div class="ans">사장님 가게를 알리는 곳이면 어디든 쓰셔도 돼요. 음악은 영상에 넣어도 된다고 허락된 곡만 골라요. 제가 작업 사례로 올릴 때는 먼저 여쭤 보고, 허락해 주신 영상만 올려요.</div>
+    </details>
+    <details>
+      <summary>보낸 사진과 영상은 언제 지우나요?</summary>
+      <div class="ans">완성 뒤 30일이 지나면 제 쪽 파일을 지워요. 견적만 하고 끝난 경우에도 30일 뒤에 지워요. 허락 없이 다른 곳에 쓰지 않아요.</div>
+    </details>
+  </div>
+</section>
+
+<!-- 신청하기 -->
+<section id="apply">
+  <div class="wrap">
+    <h2 class="h2c rv">신청하기</h2>
+    <p class="lead rv">신청서에 가게 이야기를 적어 주세요. 질문은 19개이고, 모르는 칸은 «모르겠어요»라고 적으셔도 돼요.</p>
+    <div class="apply-box rv" id="form">
+      <p>신청서를 보내 주시면 확인하고 연락드려요.<br>신청서와 미리보기를 보고 정하셔도 늦지 않아요.</p>
+      <a class="btn big" href="#form" data-form data-todo="google-form-url">신청서 쓰기</a>
+    </div>
+    <div class="contact">
+      <div>
+        <h3>카카오톡 채널</h3>
+        <a href="http://pf.kakao.com/_JxoTFX" target="_blank" rel="noopener">몽글몽글필름 채널로 문의하기</a>
       </div>
-      <div class="plat">
-        <b>숨고</b>
-        <span class="search">«몽글몽글필름» 검색</span>
-        <span class="soon">바로가기 주소는 준비 중이에요</span>
-        <!-- TODO: 숨고 프로필 이름 변경 뒤 실제 주소로 교체 (가짜 링크 금지) -->
+      <div>
+        <h3>메일</h3>
+        <a href="mailto:yesterdigest@gmail.com">yesterdigest@gmail.com</a>
       </div>
     </div>
-    <ul class="checks">
-      <li>상담·견적 무료</li>
-      <li>가입할 것 없음</li>
-    </ul>
+    <details class="privacy" id="privacy">
+      <summary>신청서에서 받는 정보는 이렇게 써요</summary>
+      <ul>
+        <li><b>받는 정보</b> · 성함(가게 이름), 연락 방법, 업종·지역, 요청 내용, 재료 전달 방법</li>
+        <li><b>쓰는 곳</b> · 영상 제작 상담, 견적, 진행 안내</li>
+        <li><b>보관 기간</b> · 견적만 하고 끝난 경우 30일, 맡기신 경우 영상을 드린 뒤 30일. 그 뒤에는 지워요.</li>
+        <li><b>거부할 수 있어요</b> · 동의하지 않으셔도 돼요. 다만 이 신청서로는 상담을 받으실 수 없어요. 카카오톡 채널로 문의해 주세요.</li>
+      </ul>
+    </details>
   </div>
 </section>
 
 </main>
 
 <footer>
-  <div class="wrap">
-    <div>몽글몽글필름 · 사진으로 만드는 영상</div>
-    <div class="biz">
-      사업자 정보: 등록 후 표시
-      <!-- 사업자등록·통신판매업 신고 뒤 상호·대표자·주소·사업자등록번호·통신판매업 신고번호를 여기에 적는다(전자상거래법 제10조·제13조). 그전에는 이 페이지에서 주문·결제를 받지 않는다. -->
+  <div class="in">
+    <a class="brand" href="#top"><img src="img/logo-512.png" width="44" height="44" alt="몽글몽글필름 로고"><span>몽글몽글필름</span></a>
+    <div class="mid">
+      동네 가게 홍보 영상 · 식전 · 결혼식 · 돌잔치 영상 제작<br>
+      메일 · <a href="mailto:yesterdigest@gmail.com">yesterdigest@gmail.com</a>
     </div>
-    <div>이 페이지에서는 주문·결제를 받지 않아요. 글꼴: Pretendard·주아(SIL OFL 1.1).</div>
+    <div class="right">
+      <a href="http://pf.kakao.com/_JxoTFX" target="_blank" rel="noopener">카카오톡 채널</a><br>
+      <a href="#privacy">개인정보 안내</a>
+    </div>
   </div>
+  <div class="copy"><div><span>© 몽글몽글필름</span><span>글꼴: Pretendard · 주아 (SIL OFL 1.1)</span></div></div>
 </footer>
 
+<dialog id="dlg" aria-label="견본 영상">
+  <button class="x" type="button" aria-label="닫기">×</button>
+  <video controls playsinline preload="none"></video>
+</dialog>
+
 <script>
-(function(){var d=document.getElementById("drawer"),b=document.getElementById("drawer-backdrop"),o=document.getElementById("menu-open"),c=document.getElementById("menu-close");
-function open(){d.hidden=false;b.hidden=false;o.setAttribute("aria-expanded","true");c.focus()}
-function close(){d.hidden=true;b.hidden=true;o.setAttribute("aria-expanded","false");o.focus()}
-o.addEventListener("click",open);c.addEventListener("click",close);b.addEventListener("click",close);
-document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)close()});})();
+(function(){
+  // 신청서(구글 폼) 주소 — 여기 한 곳만 바꾸면 «신청하기» 전부에 들어가요.
+  var FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSdxR4L8s3puOsHWoJDAqCcMkwpM8zerFNZR3A2AEuTzVX4gvA/viewform";
+  document.querySelectorAll("a[data-form]").forEach(function(a){
+    if(FORM_URL){ a.href = FORM_URL; a.target = "_blank"; a.rel = "noopener"; a.removeAttribute("data-todo"); }
+  });
+
+
+  // 몽글몽글 움직임: 스크롤하면 떠오르고, 탭이 숨겨지거나 첫 화면이 안 보이면 멈춰요
+  var root = document.documentElement;
+  root.classList.remove("no-js");
+  var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var rvs = [].slice.call(document.querySelectorAll(".rv"));
+  if(calm || !("IntersectionObserver" in window)){
+    rvs.forEach(function(e){ e.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(list){
+      list.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.08});
+    rvs.forEach(function(e){ io.observe(e); });
+  }
+  document.addEventListener("visibilitychange", function(){ root.classList.toggle("paused", document.hidden); });
+  var hero = document.getElementById("hero");
+  if(hero && "IntersectionObserver" in window){
+    new IntersectionObserver(function(l){ hero.classList.toggle("live", l[0].isIntersecting); }).observe(hero);
+  } else if(hero){ hero.classList.add("live"); }
+
+  // 메뉴(폰)
+  var burger = document.getElementById("burger"), menu = document.getElementById("menu");
+  burger.addEventListener("click", function(){
+    var o = menu.classList.toggle("open");
+    burger.setAttribute("aria-expanded", o);
+    burger.setAttribute("aria-label", o ? "메뉴 닫기" : "메뉴 열기");
+  });
+  menu.addEventListener("click", function(e){ if(e.target.tagName === "A"){ menu.classList.remove("open"); burger.setAttribute("aria-expanded","false"); } });
+
+  // 사례 슬라이더: 소리 끔 · 반복 · 멈춤 버튼 · 움직임 줄이기 설정이면 멈춘 채로 시작
+  var slides = [].slice.call(document.querySelectorAll(".slide"));
+  var dots = [].slice.call(document.querySelectorAll("#dots button"));
+  var vid = document.getElementById("sv");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var paused = reduce, idx = 0, timer = null;
+  var ppBtn = document.getElementById("pp"), icP = document.getElementById("ic-pause"), icY = document.getElementById("ic-play");
+
+  function syncVideo(){
+    if(!vid) return;
+    if(!paused && idx === 0){ var p = vid.play(); if(p && p.catch) p.catch(function(){}); } else { vid.pause(); }
+  }
+  function show(n){
+    idx = (n + slides.length) % slides.length;
+    slides.forEach(function(s,k){ s.classList.toggle("on", k === idx); s.setAttribute("aria-hidden", k !== idx); });
+    dots.forEach(function(d,k){ d.setAttribute("aria-current", k === idx); });
+    if(vid && idx === 0){ try { vid.currentTime = 0; } catch(e){} }
+    syncVideo();
+  }
+  // 첫 칸(소개 영상 26초)은 끝까지 보이게 27초 · 나머지는 6초
+  function restart(){ clearTimeout(timer); if(!paused) timer = setTimeout(function(){ show(idx+1); restart(); }, idx === 0 ? 27000 : 6000); }
+  function setPaused(v){
+    paused = v; icP.hidden = v; icY.hidden = !v;
+    ppBtn.setAttribute("aria-label", v ? "재생" : "멈춤"); ppBtn.title = v ? "재생" : "멈춤";
+    syncVideo(); restart();
+  }
+  ppBtn.addEventListener("click", function(){ setPaused(!paused); });
+  document.getElementById("prev").addEventListener("click", function(){ show(idx-1); restart(); });
+  document.getElementById("next").addEventListener("click", function(){ show(idx+1); restart(); });
+  dots.forEach(function(d,k){ d.addEventListener("click", function(){ show(k); restart(); }); });
+  setPaused(paused);
+
+  // 사례 팝업(소리 있는 전체 영상 · 눌렀을 때만 불러와요)
+  var dlg = document.getElementById("dlg"), dv = dlg.querySelector("video");
+  document.querySelectorAll("button.pic[data-full]").forEach(function(b){
+    b.addEventListener("click", function(){
+      dv.src = b.getAttribute("data-full");
+      if(dlg.showModal){ dlg.showModal(); } else { dlg.setAttribute("open",""); }
+      var p = dv.play(); if(p && p.catch) p.catch(function(){});
+    });
+  });
+  function closeDlg(){ dv.pause(); dv.removeAttribute("src"); dv.load(); if(dlg.close){ dlg.close(); } else { dlg.removeAttribute("open"); } }
+  dlg.querySelector(".x").addEventListener("click", closeDlg);
+  dlg.addEventListener("click", function(e){ if(e.target === dlg) closeDlg(); });
+  dlg.addEventListener("close", function(){ dv.pause(); dv.removeAttribute("src"); });
+})();
 </script>
 </body>
 </html>

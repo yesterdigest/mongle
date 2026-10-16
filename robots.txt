@@ -1,0 +1,7 @@
+# 몽글몽글필름 (yesterdigest.com/mongle/)
+# 참고: 검색 로봇은 도메인 맨 위(yesterdigest.com/robots.txt)의 robots.txt만 읽어요. 아래 Sitemap 줄은 그 파일에도 넣어야 효과가 있어요.
+User-agent: *
+Allow: /mongle/
+Disallow: /mongle/_old-1016/
+
+Sitemap: https://yesterdigest.com/mongle/sitemap.xml

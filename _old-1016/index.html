@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>몽글몽글필름</title>
+<meta name="description" content="사진·영상만 보내 주시면 보기 좋게 만들어 드리는 작은 영상 공방, 몽글몽글필름">
+<!-- 초안 2판 2026-10-07 22:2x · 깔끔하고 밝게 · 게시 전 · 결제·주문 기능 없음(사업자등록·통신판매업 신고 전) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFFFF; --bg-soft:#F7FAFC; --card:#FFFFFF; --ink:#1B2430; --ink2:#5A6675; --ink3:#8793A1; --line:#E6ECF2;
+  --sky:#1C7FD6; --sky-soft:#EAF4FD; --sky-ink:#FFFFFF;
+  --leaf:#3E9B4F; --leaf-soft:#EEF8EC;
+  --shadow:0 1px 2px rgba(20,40,60,.05),0 4px 14px rgba(20,40,60,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F151C; --bg-soft:#141C25; --card:#18212B; --ink:#E9EEF3; --ink2:#A7B3C0; --ink3:#7E8B99; --line:#26313D;
+    --sky:#5BB0F2; --sky-soft:#152B40; --sky-ink:#0B1621;
+    --leaf:#7CCB86; --leaf-soft:#18301D;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F151C; --bg-soft:#141C25; --card:#18212B; --ink:#E9EEF3; --ink2:#A7B3C0; --ink3:#7E8B99; --line:#26313D;
+  --sky:#5BB0F2; --sky-soft:#152B40; --sky-ink:#0B1621;
+  --leaf:#7CCB86; --leaf-soft:#18301D;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,'Pretendard Variable',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden;word-break:keep-all;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+section{padding:72px 0}
+@media (min-width:860px){section{padding:112px 0}}
+.soft{background:var(--bg-soft)}
+.eyebrow{display:inline-block;font-size:13px;font-weight:600;color:var(--sky);letter-spacing:.02em;margin-bottom:10px}
+h1,h2,h3{letter-spacing:-.02em;margin:0}
+h2{font-size:28px;line-height:1.35;font-weight:800}
+@media (min-width:860px){h2{font-size:36px}}
+.lead{color:var(--ink2);margin:10px 0 36px;font-size:17px}
+
+/* 머리줄 — 메뉴는 글자, 행동은 단추 하나 */
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{font-family:'Jua',sans-serif;font-size:22px;text-decoration:none;display:flex;align-items:center;gap:8px;white-space:nowrap}
+.logo i{width:22px;height:14px;border-radius:999px;background:linear-gradient(90deg,var(--sky) 0 50%,var(--leaf) 50%);opacity:.9}
+.hd-right{display:flex;align-items:center;gap:20px}
+nav{display:flex;gap:22px;font-size:15px}
+nav a{text-decoration:none;color:var(--ink2)}
+nav a:hover{color:var(--ink)}
+.hd-btn{font-size:14px;font-weight:600;padding:8px 14px;border-radius:10px;background:var(--sky);color:var(--sky-ink);text-decoration:none;white-space:nowrap}
+@media (max-width:720px){ nav{display:none} }
+
+/* 첫 화면 */
+.hero{padding:48px 0 72px}
+.hero .wrap{display:grid;gap:44px;align-items:center}
+@media (min-width:900px){.hero{padding:96px 0 112px}.hero .wrap{grid-template-columns:1.15fr .85fr}}
+.hero h1{font-size:36px;line-height:1.3;font-weight:800}
+.hero h1 span{color:var(--sky)}
+@media (min-width:900px){.hero h1{font-size:52px}}
+.hero p.sub{font-size:17px;color:var(--ink2);margin:18px 0 28px;max-width:520px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:14px 22px;border-radius:12px;text-decoration:none;font-size:16px;font-weight:700}
+.btn.main{background:var(--sky);color:var(--sky-ink)}
+.btn.sub{background:var(--card);border:1px solid var(--line);color:var(--ink)}
+.checks{display:flex;flex-wrap:wrap;gap:6px 18px;margin:18px 0 0;padding:0;list-style:none;font-size:14px;color:var(--ink2)}
+.checks li::before{content:"✓ ";color:var(--leaf);font-weight:700}
+.phone{position:relative;justify-self:center;width:min(280px,82vw);aspect-ratio:9/16;border-radius:30px;padding:7px;background:#11161D;box-shadow:0 20px 50px rgba(28,127,214,.18)}
+.phone video{width:100%;height:100%;border-radius:24px;display:block;background:#101633;object-fit:cover}
+.phone .badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);font-size:13px;font-weight:600;padding:3px 12px;border-radius:999px;background:var(--card);color:var(--ink);border:1px solid var(--line);white-space:nowrap}
+.caption{text-align:center;font-size:13px;color:var(--ink3);margin-top:14px}
+
+/* 세 가지 특징 */
+.feats{display:grid;gap:12px;border-top:1px solid var(--line);padding-top:28px}
+@media (min-width:760px){.feats{grid-template-columns:repeat(3,1fr);gap:24px}}
+.feat b{display:block;font-size:16px}
+.feat span{font-size:15px;color:var(--ink2)}
+.credit{font-size:13px;color:var(--ink3);margin-top:20px}
+
+/* 서비스 */
+.cards{display:grid;gap:14px}
+@media (min-width:760px){.cards{grid-template-columns:1fr 1fr;gap:20px}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:var(--shadow)}
+.card .no{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:10px;background:var(--sky-soft);color:var(--sky);font-weight:700;font-size:14px;margin-bottom:14px}
+.card:nth-child(even) .no{background:var(--leaf-soft);color:var(--leaf)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:6px}
+.card p{margin:0;color:var(--ink2)}
+.card .for{margin-top:12px;font-size:14px;color:var(--ink3)}
+.nope{margin-top:20px;padding:20px 24px;border-radius:16px;background:var(--bg-soft);border:1px solid var(--line)}
+.soft .nope{background:var(--card)}
+.nope h3{font-size:16px;font-weight:700;margin-bottom:6px}
+.nope ul{margin:0;padding-left:18px;color:var(--ink2);font-size:15px}
+
+/* 무료 / 맡기시면 */
+.two{display:grid;gap:14px}
+@media (min-width:760px){.two{grid-template-columns:1fr 1fr;gap:20px}}
+.box{border-radius:16px;padding:28px 24px;border:1px solid var(--line);background:var(--card)}
+.box .pill{display:inline-block;font-size:13px;font-weight:700;padding:4px 10px;border-radius:8px;margin-bottom:12px}
+.box.free .pill{background:var(--leaf-soft);color:var(--leaf)}
+.box.paid .pill{background:var(--sky-soft);color:var(--sky)}
+.box h3{font-size:20px;font-weight:700;margin-bottom:12px}
+.box ul{margin:0;padding:0;list-style:none}
+.box li{padding:9px 0;border-top:1px solid var(--line);color:var(--ink2)}
+.box li b{color:var(--ink);font-weight:600}
+.moment{margin-top:22px;text-align:center;color:var(--ink2)}
+
+/* 진행 순서 */
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:s}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
+.steps li::before{content:counter(s);width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--sky);color:var(--sky-ink);font-weight:700}
+.steps b{display:block;font-size:17px}
+.steps span{color:var(--ink2);font-size:15px}
+@media (min-width:900px){.steps{grid-template-columns:repeat(5,1fr)}.steps li{grid-template-columns:1fr}}
+.when{margin-top:18px;font-size:15px;color:var(--ink2)}
+
+/* 가격 */
+.prices{display:grid;gap:12px}
+@media (min-width:760px){.prices{grid-template-columns:repeat(4,1fr);gap:16px}}
+.price{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 22px}
+.price h3{font-size:15px;font-weight:600;color:var(--ink2)}
+.price .won{display:block;font-size:30px;font-weight:800;margin:6px 0 2px;letter-spacing:-.02em}
+.price .won small{font-size:16px;font-weight:600}
+.price p{margin:6px 0 0;font-size:14px;color:var(--ink3)}
+.caveat{margin-top:18px;font-size:14px;color:var(--ink2)}
+
+/* 묻는 것 */
+.faq details{max-width:760px}
+details{border-bottom:1px solid var(--line);padding:18px 4px}
+details:first-of-type{border-top:1px solid var(--line)}
+summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--sky);font-weight:400;font-size:22px;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:10px 0 0;color:var(--ink2)}
+
+/* 마지막 — 찾는 곳 */
+.ask{text-align:center}
+.ask h2 span{color:var(--sky)}
+.platforms{display:grid;gap:12px;max-width:560px;margin:0 auto}
+@media (min-width:600px){.platforms{grid-template-columns:1fr 1fr}}
+.plat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px}
+.plat b{display:block;font-size:20px;font-weight:800}
+.plat .search{display:inline-block;margin-top:8px;padding:6px 14px;border-radius:10px;background:var(--sky-soft);color:var(--sky);font-weight:600;font-size:15px}
+.plat .soon{display:block;margin-top:10px;font-size:13px;color:var(--ink3)}
+.ask .checks{justify-content:center;margin-top:22px}
+
+footer{padding:36px 0 52px;font-size:13px;color:var(--ink3);border-top:1px solid var(--line)}
+footer .biz{margin:10px 0;padding:10px 12px;border-radius:10px;border:1px dashed var(--line)}
+.hd-left{display:flex;align-items:center;gap:6px}
+.menu-btn{width:40px;height:40px;margin-left:-8px;border:0;background:transparent;color:var(--ink);border-radius:10px;display:grid;place-items:center;cursor:pointer}
+.menu-btn:hover{background:var(--line)}.menu-btn svg{width:22px;height:22px}
+.drawer-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:20}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:min(300px,84vw);background:var(--bg);z-index:21;box-shadow:4px 0 24px rgba(0,0,0,.15);padding:12px 16px;overflow-y:auto}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;height:48px;margin-bottom:8px}
+.drawer-title{font-size:13px;font-weight:700;letter-spacing:.12em;color:var(--ink3)}
+.drawer-nav{display:flex;flex-direction:column}
+.drawer-nav .menu-item{display:flex;align-items:center;justify-content:space-between;padding:14px 8px;margin:0;line-height:1.4;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);font-size:17px;font-weight:600}
+.drawer-nav .menu-small{font-size:14px;font-weight:500;color:var(--ink2);border-bottom:0;padding:10px 8px}
+.menu-item[aria-current]{color:var(--sky)}.menu-out svg{width:15px;height:15px;opacity:.5}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="hd-left"><button class="menu-btn" type="button" id="menu-open" aria-label="메뉴 열기" aria-expanded="false" aria-controls="drawer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="logo" href="#top"><i aria-hidden="true"></i>몽글몽글필름</a></div>
+    <div class="hd-right">
+      <nav aria-label="바로가기">
+        <a href="#services">맡길 수 있는 일</a>
+        <a href="#flow">진행</a>
+        <a href="#price">가격</a>
+        <a href="#faq">묻는 것</a>
+      </nav>
+      <a class="hd-btn" href="#ask">상담 받는 곳</a>
+    </div>
+  </div>
+</header>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<div class="drawer" id="drawer" hidden role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+  <div class="drawer-head"><span class="drawer-title" id="drawer-title">MENU</span><button class="menu-btn" type="button" id="menu-close" aria-label="메뉴 닫기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <nav class="drawer-nav" aria-label="yesterdigest.com 메뉴">
+      <a class="menu-item" href="/">어제한입</a>
+      <a class="menu-item" href="/#editions">지난 편</a>
+      <a class="menu-item" href="/#growth">채널 성장</a>
+      <a class="menu-item" href="/ohora/">오호라 <span class="menu-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></a>
+      <a class="menu-item" href="/mongle/" aria-current="page">몽글몽글필름</a>
+      <a class="menu-item" href="/cv/">CV <span class="menu-out"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg></span></a>
+      <a class="menu-item menu-small" href="/privacy/">개인정보처리방침</a>
+      <a class="menu-item menu-small" href="/terms/">이용약관</a>
+  </nav>
+</div>
+
+
+<main id="top">
+
+<!-- 1. 첫 화면: 누구의 일인가 + 왜 우리인가 · 오른쪽에 실제 결과물 -->
+<section class="hero" id="example">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">작은 영상 공방</span>
+      <h1>사진·영상만 보내 주세요.<br><span>보기 좋게</span> 만들어 드릴게요.</h1>
+      <p class="sub">자르고, 자막을 얹고, 음악을 맞추는 일. 시간이 없거나 편집 프로그램이 낯선 분 대신 몽글몽글필름이 차근차근 다듬어 드려요.</p>
+      <div class="btns">
+        <a class="btn main" href="#free">무료로 상담 받기</a>
+        <a class="btn sub" href="#flow">맡기는 방법</a>
+      </div>
+      <ul class="checks">
+        <li>상담·견적 무료</li>
+        <li>가입할 것 없음</li>
+        <li>만나거나 통화할 일 없음</li>
+      </ul>
+    </div>
+    <div>
+      <div class="phone">
+        <span class="badge">예시 영상</span>
+        <video src="media/book-short-v1.mp4" poster="media/book-short-poster.png" controls playsinline preload="none" aria-label="예시 영상: 60초 책 소개 쇼츠"></video>
+      </div>
+      <p class="caption">몽글몽글필름이 직접 만든 60초 책 소개 쇼츠</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. 예시 영상에서 보이는 것 -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="feats">
+      <div class="feat"><b>자막이 박자에 맞춰</b><span>중요한 말은 색을 입혀 눈에 걸리게</span></div>
+      <div class="feat"><b>세로·가로 모두</b><span>쇼츠·릴스용 세로, 화면용 가로 둘 다</span></div>
+      <div class="feat"><b>저작권 걱정 없는 음악</b><span>영상에 넣어 공개해도 된다고 허락된 곡만 써요</span></div>
+    </div>
+    <p class="credit">예시 영상 · 의뢰받은 작업이 아닌 소개용 작품이에요. 음악: 에릭 사티 «짐노페디 1번»(Musopen 녹음 · 퍼블릭 도메인 · 위키미디어 공용).</p>
+  </div>
+</section>
+
+<!-- 3. 맡길 수 있는 일 -->
+<section id="services" class="soft">
+  <div class="wrap">
+    <span class="eyebrow">맡길 수 있는 일</span>
+    <h2>잘 할 수 있는 네 가지만 받아요</h2>
+    <p class="lead">보내 주신 자료로, 메시지로만 주고받으며 만들어요.</p>
+    <div class="cards">
+      <article class="card">
+        <span class="no">01</span>
+        <h3>짧은 영상 컷·자막 편집</h3>
+        <p>휴대폰으로 찍은 10분 안쪽 영상을 보기 좋게 자르고 자막·음악을 넣어요.</p>
+        <p class="for">브이로그 · 가게 소개 · 강의 클립 · 가족 영상</p>
+      </article>
+      <article class="card">
+        <span class="no">02</span>
+        <h3>자막이 톡톡 튀는 쇼츠</h3>
+        <p>책 소개·제품 소개처럼 말과 자막이 주인공인 60초 안팎 세로 영상.</p>
+        <p class="for">책 소개 · 상품 소개 · 짧은 홍보</p>
+      </article>
+      <article class="card">
+        <span class="no">03</span>
+        <h3>결혼식 식전 영상 · 성장 영상</h3>
+        <p>사진과 몇 줄의 글만 보내 주시면, 두 분(또는 아이)의 이야기를 한 편으로 엮어요.</p>
+        <p class="for">식전 영상 · 돌·생일 성장 영상 · 감사 영상</p>
+      </article>
+      <article class="card">
+        <span class="no">04</span>
+        <h3>엑셀 자동화</h3>
+        <p>매번 손으로 하던 복사·정리·집계를 버튼 한 번으로. 영상은 아니지만 꼼꼼함은 같아요.</p>
+        <p class="for">반복 집계 · 서식 정리 · 매크로(VBA)</p>
+      </article>
+    </div>
+    <div class="nope">
+      <h3>이런 일은 받지 않아요</h3>
+      <ul>
+        <li>촬영·현장 방문 (보내 주신 자료로만 작업해요)</li>
+        <li>긴 행사 원본 전체 편집 · 3D·특수효과</li>
+        <li>본인이 직접 만들어야 하는 공모전·과제를 대신 만드는 일</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 4. 무료로 / 맡기시면 (하드 규칙 3) -->
+<section id="free">
+  <div class="wrap">
+    <span class="eyebrow">먼저 편하게</span>
+    <h2>맡길지 말지는 이야기 나눈 뒤에</h2>
+    <p class="lead">상담하고 시안을 보신 다음에 정하셔도 돼요.</p>
+    <div class="two">
+      <div class="box free">
+        <span class="pill">무료</span>
+        <h3>맡기기 전에</h3>
+        <ul>
+          <li><b>상담과 견적</b> — 어떤 영상인지, 얼마나 걸리는지</li>
+          <li><b>짧은 방향 시안</b> — 자막 느낌·색을 몇 초 분량으로 먼저</li>
+          <li><b>준비물 안내</b> — 사진 몇 장, 어떤 글이 필요한지</li>
+          <li><b>예시 영상</b> — 이 페이지에서 언제든 자유롭게</li>
+        </ul>
+      </div>
+      <div class="box paid">
+        <span class="pill">맡기시면</span>
+        <h3>끝까지 완성해서</h3>
+        <ul>
+          <li><b>완성 영상 파일(MP4)</b> — 표시 없이, 바로 올리거나 틀 수 있게</li>
+          <li><b>수정 2회</b> — 순서·문구·음악을 원하시는 대로</li>
+          <li><b>사람이 한 번 더 확인</b> — 얼굴 잘림·오타·박자</li>
+          <li><b>두 가지 크기</b> — 필요하면 가로·세로 모두</li>
+        </ul>
+      </div>
+    </div>
+    <p class="moment">시안을 보시고 «이 느낌으로 끝까지 보고 싶다» 싶으실 때, 그때 맡겨 주세요.</p>
+  </div>
+</section>
+
+<!-- 5. 진행 순서 -->
+<section id="flow" class="soft">
+  <div class="wrap">
+    <span class="eyebrow">진행 순서</span>
+    <h2>메시지로만 주고받아요</h2>
+    <p class="lead">만나거나 통화할 일은 없어요.</p>
+    <ol class="steps">
+      <li><div><b>상담</b><span>원하시는 영상과 날짜를 알려 주세요.</span></div></li>
+      <li><div><b>자료 전달</b><span>사진·영상·글을 원본 화질 그대로 보내 주세요.</span></div></li>
+      <li><div><b>초안</b><span>보통 1~2일 안에 첫 초안을 보내 드려요.</span></div></li>
+      <li><div><b>수정 2회</b><span>순서·문구·음악을 고쳐요.</span></div></li>
+      <li><div><b>완성</b><span>영상 파일을 받으시면 끝.</span></div></li>
+    </ol>
+    <p class="when">일정은 영상 길이와 자료 양에 따라 달라요. 날짜가 정해진 일(예식 등)은 상담 때 먼저 말씀해 주세요.</p>
+  </div>
+</section>
+
+<!-- 6. 가격 -->
+<section id="price">
+  <div class="wrap">
+    <span class="eyebrow">시작 가격</span>
+    <h2>자료를 보고 정확히 알려 드려요</h2>
+    <p class="lead">아래는 시작 가격이에요. 길이와 자료 양에 따라 상담 때 정해요.</p>
+    <div class="prices">
+      <div class="price"><h3>짧은 영상 편집</h3><span class="won">30,000<small>원~</small></span><p>10분 안쪽 원본 · 컷·자막·음악</p></div>
+      <div class="price"><h3>자막 쇼츠</h3><span class="won">50,000<small>원~</small></span><p>60초 안팎 세로 영상</p></div>
+      <div class="price"><h3>식전·성장 영상</h3><span class="won">39,000<small>원~</small></span><p>사진 30장까지 · 약 2분</p></div>
+      <div class="price"><h3>엑셀 자동화</h3><span class="won" style="font-size:26px">상담 후</span><p>작업 범위를 보고 정해요</p></div>
+    </div>
+    <p class="caveat">첫 의뢰 가격이에요. 후기가 쌓이면 바뀔 수 있어요. 의뢰와 결제는 크몽·숨고 안에서 진행돼요.</p>
+  </div>
+</section>
+
+<!-- 7. 자주 묻는 것 -->
+<section id="faq" class="soft">
+  <div class="wrap faq">
+    <span class="eyebrow">자주 묻는 것</span>
+    <h2 style="margin-bottom:28px">궁금하신 것</h2>
+    <details><summary>제가 고른 노래를 넣을 수 있나요?</summary><p>영상에 넣어 공개해도 된다고 허락된 곡만 써요. 유명 가요는 저작권자의 허락 없이 영상에 넣을 수 없어서 쓰지 않아요. 분위기에 맞는 곡을 추천해 드릴게요.</p></details>
+    <details><summary>휴대폰 사진·영상도 괜찮나요?</summary><p>네. 다만 메신저로 보내면 화질이 줄 수 있어 «원본으로 보내기»를 권해 드려요.</p></details>
+    <details><summary>보낸 사진은 어떻게 되나요?</summary><p>작업에만 쓰고, 완성 뒤 30일 안에 저희 쪽 파일을 지워요. 허락 없이 다른 곳에 쓰지 않아요.</p></details>
+    <details><summary>사진 속 다른 사람 얼굴이 있어도 되나요?</summary><p>보내 주시는 사진·영상은 쓰실 권리가 있는 것이어야 해요. 함께 찍힌 분들께는 미리 물어봐 주세요.</p></details>
+    <details><summary>공모전에 낼 영상도 되나요?</summary><p>공모전 규칙에 «본인이 직접 제작»이 있으면 맡아 드릴 수 없어요. 상담 때 규칙을 함께 확인해요.</p></details>
+  </div>
+</section>
+
+<!-- 8. 마지막: 찾는 곳 -->
+<section class="ask" id="ask">
+  <div class="wrap">
+    <h2>상담은 <span>크몽·숨고</span>에서 받아요</h2>
+    <p class="lead">두 곳 모두 «몽글몽글필름»으로 찾으실 수 있어요.</p>
+    <div class="platforms">
+      <div class="plat">
+        <b>크몽</b>
+        <span class="search">«몽글몽글필름» 검색</span>
+        <span class="soon">바로가기 주소는 준비 중이에요</span>
+        <!-- TODO: 크몽 서비스 등록 뒤 실제 주소로 교체 (가짜 링크 금지) -->
+      </div>
+      <div class="plat">
+        <b>숨고</b>
+        <span class="search">«몽글몽글필름» 검색</span>
+        <span class="soon">바로가기 주소는 준비 중이에요</span>
+        <!-- TODO: 숨고 프로필 이름 변경 뒤 실제 주소로 교체 (가짜 링크 금지) -->
+      </div>
+    </div>
+    <ul class="checks">
+      <li>상담·견적 무료</li>
+      <li>가입할 것 없음</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>몽글몽글필름 · 사진으로 만드는 영상</div>
+    <div class="biz">
+      사업자 정보: 등록 후 표시
+      <!-- 사업자등록·통신판매업 신고 뒤 상호·대표자·주소·사업자등록번호·통신판매업 신고번호를 여기에 적는다(전자상거래법 제10조·제13조). 그전에는 이 페이지에서 주문·결제를 받지 않는다. -->
+    </div>
+    <div>이 페이지에서는 주문·결제를 받지 않아요. 글꼴: Pretendard·주아(SIL OFL 1.1).</div>
+  </div>
+</footer>
+
+<script>
+(function(){var d=document.getElementById("drawer"),b=document.getElementById("drawer-backdrop"),o=document.getElementById("menu-open"),c=document.getElementById("menu-close");
+function open(){d.hidden=false;b.hidden=false;o.setAttribute("aria-expanded","true");c.focus()}
+function close(){d.hidden=true;b.hidden=true;o.setAttribute("aria-expanded","false");o.focus()}
+o.addEventListener("click",open);c.addEventListener("click",close);b.addEventListener("click",close);
+document.addEventListener("keydown",function(e){if(e.key==="Escape"&&!d.hidden)close()});})();
+</script>
+</body>
+</html>
