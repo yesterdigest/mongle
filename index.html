@@ -6,6 +6,11 @@
 <title>몽글몽글필름 · 가게 홍보 영상과 식전·결혼식·돌잔치 영상</title>
 <meta name="description" content="동네 가게 홍보 영상을 한 달 단위로, 결혼식 식전 영상·결혼식 영상·돌잔치 영상은 한 편씩 만들어 드려요. 사진만 보내 주세요. 가게 영상은 월 4편 15만 원, 한 편 4만 원.">
 <link rel="canonical" href="https://yesterdigest.com/mongle/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<!-- 검색 등록 확인 메타 태그 자리 (2026-10-16) — 유진님이 코드를 받으면 아래 줄 «주석을 풀고» 코드만 바꿔 넣어요. 한 번 넣으면 지우지 않아요.
+<meta name="google-site-verification" content="여기에-구글-서치콘솔-코드">
+<meta name="naver-site-verification" content="여기에-네이버-서치어드바이저-코드">
+-->
 <meta name="theme-color" content="#FFDCE5">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -30,11 +35,14 @@
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": "https://yesterdigest.com/mongle/#org",
       "name": "몽글몽글필름",
       "url": "https://yesterdigest.com/mongle/",
       "logo": "https://yesterdigest.com/mongle/img/logo-512.png",
+      "image": "https://yesterdigest.com/mongle/img/og.jpg",
+      "email": "yesterdigest@gmail.com",
+      "areaServed": { "@type": "Country", "name": "대한민국" },
       "description": "동네 가게 홍보 영상을 한 달 단위로, 식전 영상·결혼식 영상·돌잔치 영상을 한 편씩 만들어 드리는 영상 제작 서비스",
       "sameAs": ["http://pf.kakao.com/_JxoTFX"]
     },
@@ -583,6 +591,7 @@ header.top{background:rgba(255,252,250,.86)}
         <p>아이가 자란 모습을 사진으로 이어 만드는 성장 영상이에요. 돌잔치에서 한 번 틀어 드리는 영상이에요.</p>
       </div>
     </div>
+    <p class="svcs-note rv" style="margin-bottom:10px">더 자세한 안내 · <a href="store-promo/">가게 홍보 영상</a> · <a href="reels-shorts-monthly/">릴스·쇼츠 월 4편</a> · <a href="wedding-video/">결혼식 영상</a></p>
     <p class="svcs-note rv">촬영은 하지 않고, 보내 주신 사진과 영상으로 만들어요. 행사 영상은 구성에 따라 값이 달라서, 신청서를 보내 주시면 값과 날짜를 먼저 말씀드려요.</p>
   </div>
 </section>
@@ -891,7 +900,8 @@ header.top{background:rgba(255,252,250,.86)}
     </div>
     <div class="right">
       <a href="http://pf.kakao.com/_JxoTFX" target="_blank" rel="noopener">카카오톡 채널</a><br>
-      <a href="#privacy">개인정보 안내</a>
+      <a href="#privacy">개인정보 안내</a><br>
+      <a href="store-promo/">가게 홍보 영상</a> · <a href="reels-shorts-monthly/">릴스·쇼츠 월 4편</a> · <a href="wedding-video/">결혼식 영상</a>
     </div>
   </div>
   <div class="copy"><div><span>© 몽글몽글필름</span><span>글꼴: Pretendard · 주아 (SIL OFL 1.1)</span></div></div>
