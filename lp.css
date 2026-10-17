@@ -96,3 +96,9 @@ footer .copy{background:var(--bg);color:var(--ink);padding:10px 16px;text-align:
   .faq summary{font-size:17px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* 후기 — 숨고 결제인증 리뷰 원문 */
+.rvlist{display:grid;gap:12px;margin-top:22px}
+.rvc{background:#fff;border:1px solid var(--line);padding:16px 18px}
+.rvc .who{font-size:14px;color:var(--ink2);font-weight:700;margin-bottom:6px}
+.rvc .who .st{color:#E8A33D;letter-spacing:1px;margin-right:6px}
+.rvsrc{text-align:center;margin-top:14px;font-size:14px;color:var(--ink2)}
