@@ -97,7 +97,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.min.css" rel="stylesheet">
 <style>
-/* 몽글몽글필름 홈페이지 · 2026-10-16 · 각진 모서리 · 그림자 없음 · 로고(자두색 글자 + 분홍→살구→연보라)에서 색을 땀 */
+/* 몽글몽글필름 홈페이지 · 2026-10-19 둥글고 부드럽게(맨 아래 «부드럽게» 블록) · 로고(자두색 글자 + 분홍→살구→연보라)에서 색을 땀 */
 :root{
   --ink:#6A4E63;          /* 로고 글자색 · 글자는 이 한 색 */
   --ink2:#7D6677;         /* 보조 글자 */
@@ -109,7 +109,7 @@
   --dark:#3B2836;
   --w:1140px;
 }
-*{box-sizing:border-box;border-radius:0}
+*{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:12px}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:Pretendard,'Pretendard Variable',-apple-system,'Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif;font-size:16px;line-height:1.75;font-weight:500;letter-spacing:-.5px;word-break:keep-all;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -491,6 +491,242 @@ header.top{background:rgba(255,252,250,.86)}
   .rv{opacity:1;transform:none;transition:none}
   .btn:hover,.svc:hover,.work .pic:hover,.price:hover,.contact div:hover,.feat div:hover svg{animation:none!important}
 }
+
+/* ===== 2026-10-19 부드럽게 · 모서리는 크게 둥글게, 테두리 대신 부드러운 그림자, 구간은 그라데이션으로 이어짐 ===== */
+:root{
+  --r-s:16px;--r-m:24px;--r-l:32px;
+  --sh:0 10px 30px rgba(164,118,156,.13);
+  --sh2:0 18px 46px rgba(164,118,156,.20);
+  --glass:rgba(255,255,255,.72);
+  --edge:rgba(255,255,255,.9);
+  --btn:linear-gradient(135deg,#7D5F98 0%,#A0709C 100%);
+  --btn-h:linear-gradient(135deg,#8A6AA6 0%,#B07EAA 100%);
+}
+body{background:linear-gradient(180deg,#FFF1F4 0%,#FFF6F1 9%,#FBF5FF 22%,#FFF8F3 36%,#FFF3F6 50%,#FAF5FF 64%,#FFF7F1 78%,#FFF2F5 90%,#FFF9F5 100%)}
+h1,h2,h3,h4{font-weight:700;letter-spacing:-.8px}
+.hero h1{font-weight:700;letter-spacing:-1.2px;text-shadow:0 2px 22px rgba(255,255,255,.75)}
+.step .no b{font-weight:700}
+.price .amt{font-weight:700}
+.faq summary{font-weight:700;letter-spacing:-.6px}
+svg *{stroke-linecap:round;stroke-linejoin:round}
+svg rect{rx:6px}
+
+/* 머리글 · 배경 없이 첫 화면 색 위에 얹힘 */
+header.top{background:transparent;z-index:20}
+.brand{gap:12px}
+.brand img{width:44px;height:44px;border-radius:50%;filter:drop-shadow(0 4px 10px rgba(164,110,150,.30))}
+.brand span{text-shadow:0 1px 12px rgba(255,255,255,.7)}
+nav.main{gap:2px}
+nav.main a{border:0;border-radius:999px;transition:background .25s,transform .25s}
+nav.main a:hover{background:rgba(255,255,255,.7);border:0}
+nav.main a.cta{margin-left:10px;background:var(--btn);box-shadow:0 6px 18px rgba(125,95,152,.28)}
+nav.main a.cta:hover{background:var(--btn-h);transform:translateY(-2px);box-shadow:0 10px 24px rgba(125,95,152,.34);animation:none}
+.burger{border-radius:50%;background:rgba(255,255,255,.7);box-shadow:var(--sh)}
+
+/* 버튼 · 알약 */
+.btn{border:2px solid transparent;border-radius:999px;background:var(--btn);color:#fff;box-shadow:0 8px 22px rgba(125,95,152,.30);transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s,background .3s}
+.btn:hover{background:var(--btn-h);border-color:transparent;transform:translateY(-3px);box-shadow:0 14px 30px rgba(125,95,152,.36);animation:none}
+.btn.line{background:rgba(255,255,255,.62);color:var(--ink);border:2px solid rgba(106,78,99,.30);box-shadow:0 6px 18px rgba(164,118,156,.14);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.btn.line:hover{background:rgba(255,255,255,.92);color:var(--ink);border-color:rgba(106,78,99,.45)}
+
+/* 첫 화면 · 아래로 갈수록 투명하게 풀려 다음 구간과 이어짐 */
+.hero{margin-top:-68px;padding:140px 0 104px;background:transparent}
+.hero::before{-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 55%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 55%,rgba(0,0,0,0) 100%)}
+.wave{display:none}
+.hero .mini{font-weight:600}
+
+/* 소개 영상 칸 */
+.stage-wrap{padding:0 16px}
+.stage{border:0;border-radius:var(--r-l);box-shadow:var(--sh2);margin-top:8px}
+.slide .tag{border-radius:999px;padding:5px 14px;background:rgba(255,255,255,.78);color:var(--ink);box-shadow:0 4px 12px rgba(164,118,156,.16)}
+.slide .vid{background:transparent}
+.slide.s0 .vid{margin:18px 18px 18px 0;height:calc(100% - 36px);border-radius:var(--r-l);overflow:hidden;box-shadow:0 12px 34px rgba(120,80,130,.22)}
+.dots button{height:8px;width:30px;border-radius:999px;background:rgba(106,78,99,.18);transition:background .3s,width .3s}
+.dots button[aria-current="true"]{background:var(--btn);width:44px}
+.ctl button{border:0;border-radius:50%;background:var(--glass);box-shadow:var(--sh);transition:transform .25s,background .25s,color .25s}
+.ctl button:hover{background:var(--btn);color:#fff;transform:translateY(-2px)}
+
+/* 구간 · 가로로 끊기는 면 없이 번지게 */
+.band{background:linear-gradient(180deg,rgba(255,232,240,0) 0%,rgba(255,232,240,.62) 16%,rgba(243,236,255,.6) 84%,rgba(243,236,255,0) 100%)}
+
+/* 카드들 */
+.svc{border:1px solid var(--edge);border-radius:var(--r-l);background:var(--glass);box-shadow:var(--sh);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.svc.store{background:linear-gradient(160deg,rgba(255,255,255,.85) 0%,rgba(255,240,228,.85) 100%)}
+.svc.event{background:linear-gradient(160deg,rgba(255,252,243,.9),rgba(255,246,230,.82));border-color:rgba(255,255,255,.9)}
+.svc .kind{border:0;border-radius:999px;padding:4px 12px;background:rgba(232,225,255,.7)}
+.svc.event .kind{border:0;background:rgba(255,238,205,.8)}
+.work .pic{border-radius:var(--r-m);box-shadow:var(--sh)}
+.work figcaption{padding-left:6px}
+.feat svg{filter:drop-shadow(0 4px 8px rgba(164,118,156,.18))}
+.hr{border:0;height:2px;border-radius:999px;background:linear-gradient(90deg,rgba(106,78,99,0),rgba(106,78,99,.28),rgba(106,78,99,0))}
+
+/* 진행 방법 */
+.step .no{border-radius:var(--r-l)}
+.step .card{border-radius:var(--r-l);background:rgba(255,255,255,.9);box-shadow:var(--sh2)}
+.step:nth-child(1) .no{background:linear-gradient(150deg,#FFD3DF,#FFEAEF)}
+.step:nth-child(2) .no{background:linear-gradient(150deg,#FFE3CB,#FFF1E2)}
+.step:nth-child(3) .no{background:linear-gradient(150deg,#E2D9FF,#F3EEFF)}
+.step:nth-child(4) .no{background:linear-gradient(150deg,#FFD3DF,#FFEAEF)}
+.step:nth-child(5) .no{background:linear-gradient(150deg,#FFE3CB,#FFF1E2)}
+
+/* 가격 */
+.price{border:1px solid var(--edge);border-radius:var(--r-l);background:var(--glass);box-shadow:var(--sh);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.price.hl{border:2px solid rgba(255,255,255,.95);background:linear-gradient(150deg,rgba(255,220,229,.92) 0%,rgba(255,236,222,.92) 50%,rgba(232,225,255,.92) 100%);box-shadow:var(--sh2)}
+.price ul{border-top:2px solid rgba(106,78,99,.12);border-radius:0}
+.price li::before{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#C79BC0,#9F83BE)}
+.notes p{border:1px solid var(--edge);border-radius:var(--r-m);background:var(--glass);box-shadow:0 6px 18px rgba(164,118,156,.10);padding:15px 22px}
+
+/* 후기 */
+.rvc{border:1px solid var(--edge);border-radius:var(--r-m);box-shadow:var(--sh);background:var(--glass);padding:20px 24px}
+.rvshots img{border:0;border-radius:var(--r-m);box-shadow:var(--sh)}
+
+/* 자주 묻는 질문 · 한 칸씩 둥근 알약 카드 */
+.faq details{border:0;border-radius:var(--r-m);background:var(--glass);box-shadow:0 6px 20px rgba(164,118,156,.10);margin-bottom:12px;overflow:hidden;transition:background .25s,box-shadow .25s}
+.faq details:last-child{border:0;margin-bottom:0}
+.faq details[open]{background:rgba(255,255,255,.92);box-shadow:var(--sh)}
+.faq summary{padding:18px 24px;align-items:center}
+.faq summary::before{content:"+";flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:20px;line-height:1;background:linear-gradient(135deg,#FFDCE5,#E8E1FF)}
+.faq details[open] summary::before{content:"−"}
+.faq details.hot summary{background:linear-gradient(100deg,rgba(255,220,229,.85),rgba(255,236,222,.7))}
+.faq .ans{padding:4px 24px 26px 68px}
+
+/* 신청 */
+.apply-box{border:1px solid var(--edge);border-radius:36px;background:linear-gradient(150deg,rgba(255,255,255,.92),rgba(255,244,248,.88));box-shadow:var(--sh2)}
+.contact div{border:1px solid var(--edge);border-radius:var(--r-m);background:var(--glass);box-shadow:var(--sh)}
+.privacy{border:1px solid var(--edge);border-radius:var(--r-m);background:var(--glass);box-shadow:var(--sh);overflow:hidden}
+.privacy summary{padding:18px 26px}
+
+/* 바닥글 · 위쪽 모서리를 둥글게 */
+footer{margin-top:24px;border-radius:44px 44px 0 0;overflow:hidden;background:linear-gradient(160deg,#4E3A49 0%,#3B2836 100%)}
+footer .brand span{text-shadow:none}
+footer .brand img{width:48px;height:48px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+footer .copy{background:rgba(255,255,255,.07);color:#E8D8DF}
+footer .copy div{padding:12px 24px}
+
+/* 영상 팝업 */
+dialog{border-radius:var(--r-l);overflow:hidden;box-shadow:0 24px 70px rgba(40,20,50,.5)}
+dialog::backdrop{background:rgba(59,40,54,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+dialog .x{top:10px;right:10px;border-radius:50%;background:rgba(255,255,255,.9);box-shadow:var(--sh)}
+
+@media (max-width:860px){
+  nav.main{top:calc(100% + 4px);left:12px;right:12px;border:0;border-radius:var(--r-m);background:#FFFCFA;box-shadow:var(--sh2);padding:8px 14px 16px}
+  nav.main a{border-bottom:0;border-radius:var(--r-s);padding:0 12px}
+  nav.main a.cta{margin:10px 0 0}
+  .step .no,.step:nth-child(even) .no{border-radius:var(--r-l)}
+}
+@media (max-width:720px){
+  .brand img{width:38px;height:38px}
+  .hero{margin-top:-56px;padding:92px 0 84px}
+  .hero .btns .btn{flex:1 1 100%}
+  .stage-wrap{padding:0 12px}
+  .stage{border-radius:28px;margin-top:4px}
+  .slide.s0 .vid{margin:0;height:100%;border-radius:0;box-shadow:none}
+  .slide.s0 .tag{background:rgba(255,255,255,.9)}
+  .faq summary{padding:16px 16px;font-size:18px}
+  .faq summary::before{width:28px;height:28px}
+  .faq .ans{padding:2px 18px 22px 18px}
+  .apply-box{border-radius:30px}
+  .price,.svc{border-radius:28px}
+  footer{border-radius:32px 32px 0 0}
+  footer .copy div{padding:12px 20px}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn:hover,nav.main a.cta:hover,.ctl button:hover{transform:none}
+}
+
+/* ===== 2026-10-19 방울 · 누르는 곳은 비눗방울처럼(광택·파스텔·몽글 부풀기·톡 떠오르는 방울) · 과하지 않게 ===== */
+:root{
+  --gloss:radial-gradient(ellipse 62% 46% at 30% 20%,rgba(255,255,255,.62) 0%,rgba(255,255,255,.18) 55%,rgba(255,255,255,0) 100%);
+  --bubble:radial-gradient(circle at 32% 28%,#fff 0%,rgba(255,255,255,.55) 40%,rgba(255,196,222,.55) 100%);
+}
+.btn,nav.main a,.ctl button,.burger{position:relative}
+.btn{background:var(--gloss),var(--btn);box-shadow:0 8px 22px rgba(125,95,152,.30),inset 0 2px 5px rgba(255,255,255,.45),inset 0 -7px 12px rgba(80,40,110,.16)}
+.btn:hover{background:var(--gloss),var(--btn-h)}
+.btn.line{background:var(--gloss),rgba(255,255,255,.6);box-shadow:0 6px 18px rgba(164,118,156,.16),inset 0 2px 5px rgba(255,255,255,.9),inset 0 -6px 12px rgba(200,160,210,.16)}
+.btn.line:hover{background:var(--gloss),rgba(255,255,255,.92)}
+nav.main a.cta{background:var(--gloss),var(--btn);box-shadow:0 6px 18px rgba(125,95,152,.28),inset 0 2px 4px rgba(255,255,255,.42),inset 0 -6px 10px rgba(80,40,110,.16)}
+nav.main a.cta:hover{background:var(--gloss),var(--btn-h)}
+nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-shadow:0 6px 16px rgba(164,118,156,.16),inset 0 -5px 9px rgba(220,170,205,.2)}
+.ctl button,.burger{background:var(--gloss),rgba(255,255,255,.78);box-shadow:var(--sh),inset 0 -5px 9px rgba(200,160,210,.18)}
+.ctl button:hover{background:var(--gloss),var(--btn);color:#fff}
+
+/* 톡 떠오르는 작은 방울(::before 하나 + ::after 둘) */
+.btn::before,.btn::after,nav.main a::before,nav.main a::after{content:"";position:absolute;pointer-events:none;opacity:0;border-radius:50%}
+.btn::before,nav.main a::before{width:15px;height:15px;left:18%;top:-8px;background:var(--bubble);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.95),0 0 0 1px rgba(214,160,200,.45),0 3px 8px rgba(190,130,180,.25)}
+.btn::after,nav.main a::after{width:30px;height:28px;right:14%;top:-10px;
+  background:radial-gradient(circle at 32% 30%,#fff 0 2.5px,rgba(255,255,255,.5) 4px,rgba(255,190,218,.75) 8px,rgba(214,160,200,.55) 9px,rgba(255,255,255,0) 10px) 0 0/16px 16px no-repeat,
+             radial-gradient(circle at 32% 30%,#fff 0 2px,rgba(255,255,255,.5) 3px,rgba(210,198,255,.8) 6px,rgba(170,150,230,.55) 7px,rgba(255,255,255,0) 8px) 15px 14px/12px 12px no-repeat}
+@keyframes popup{0%{transform:translate3d(0,8px,0) scale(.3);opacity:0}25%{opacity:1}100%{transform:translate3d(-4px,-30px,0) scale(1);opacity:0}}
+@keyframes popup2{0%{transform:translate3d(0,8px,0) scale(.3);opacity:0}30%{opacity:1}100%{transform:translate3d(6px,-38px,0) scale(1.05);opacity:0}}
+@keyframes jelly{
+  0%{transform:translateY(0) scale(1)}
+  30%{transform:translateY(-4px) scale(1.07,.95)}
+  60%{transform:translateY(-2px) scale(.985,1.03)}
+  100%{transform:translateY(-3px) scale(1.04)}}
+@keyframes morph{
+  0%,100%{border-radius:24px}
+  33%{border-radius:30px 22px 28px 20px / 24px 30px 20px 28px}
+  66%{border-radius:22px 30px 20px 28px / 28px 22px 30px 20px}}
+@media (hover:hover){
+  .btn:hover,nav.main a.cta:hover{animation:jelly .6s cubic-bezier(.2,.8,.2,1) both}
+  nav.main a:not(.cta):hover,.ctl button:hover{transform:scale(1.05)}
+  .btn:hover::before,nav.main a:hover::before{animation:popup .9s ease-out}
+  .btn:hover::after,nav.main a:hover::after{animation:popup2 1.1s .08s ease-out}
+  .ctl button:hover,.burger:hover{transform:translateY(-2px) scale(1.06)}
+  .dots button:hover{transform:scaleY(1.5)}
+  .work .pic:hover{animation:morph 1.6s ease-in-out infinite;transform:scale(1.03);box-shadow:var(--sh2)}
+  .svc:hover,.price:hover,.contact div:hover,.rvc:hover{animation:none;transform:translateY(-4px) scale(1.012);box-shadow:var(--sh2);transition-delay:0s}
+  .svc.event:hover::after{animation-duration:3s}
+  .faq summary:hover::before{transform:scale(1.14)}
+  .faq details:hover{background:rgba(255,255,255,.92);box-shadow:var(--sh)}
+  .privacy summary:hover{background:linear-gradient(100deg,rgba(255,232,240,.6),rgba(243,236,255,.5))}
+  .feat div:hover svg,.svc:hover .ic{animation:jelly .7s cubic-bezier(.2,.8,.2,1) both}
+}
+/* 누를 때 살짝 눌림 · 폰에서는 누르는 순간 방울이 짧게 */
+.btn:active,nav.main a.cta:active{transform:translateY(1px) scale(.965);animation:none;transition-duration:.08s;box-shadow:0 3px 10px rgba(125,95,152,.28),inset 0 3px 8px rgba(80,40,110,.22)}
+.btn:active::before,nav.main a:active::before{animation:popup .45s ease-out}
+.btn:active::after,nav.main a:active::after{animation:popup2 .5s ease-out}
+.ctl button:active,.burger:active,.faq summary:active{transform:scale(.94)}
+.work .pic:active{transform:scale(.98)}
+.dots button,.work .pic,.faq summary::before,.svc,.price,.contact div,.rvc{transition:transform .25s ease,box-shadow .25s,background .25s,opacity .9s}
+.ctl button,.burger,nav.main a{transition:transform .25s ease,background .25s,box-shadow .25s,color .25s}
+
+/* 자주 묻는 질문 동그라미도 방울처럼 */
+.faq summary::before{background:var(--gloss),linear-gradient(135deg,#FFDCE5,#E8E1FF);box-shadow:inset 0 -3px 6px rgba(180,140,200,.25),0 2px 6px rgba(164,118,156,.18)}
+
+/* 아이콘 받침 · 방울 안에 든 것처럼 */
+.feat svg{width:78px;height:78px;padding:16px;margin:16px auto;border-radius:50%;background:var(--gloss),radial-gradient(circle at 50% 60%,rgba(255,236,244,.9),rgba(238,230,255,.75));box-shadow:0 10px 22px rgba(164,118,156,.18),inset 0 -6px 12px rgba(200,160,210,.2);filter:none}
+.svc .ic{width:76px;height:76px;display:grid;place-items:center;border-radius:50%;background:var(--gloss),radial-gradient(circle at 50% 60%,rgba(255,236,244,.9),rgba(238,230,255,.75));box-shadow:0 8px 18px rgba(164,118,156,.16),inset 0 -5px 10px rgba(200,160,210,.2)}
+.svc .ic svg{width:42px;height:42px}
+.svc.event .ic{background:var(--gloss),radial-gradient(circle at 50% 60%,rgba(255,248,226,.95),rgba(255,236,210,.8))}
+
+/* 섹션 제목 아래 작은 알약 · 구분선에 방울 */
+.h2c::after{content:"";display:block;width:54px;height:8px;margin:14px auto 0;border-radius:999px;background:linear-gradient(90deg,#FFC9D8,#FFDFC2,#D9CFFF)}
+.hr{height:14px;background:
+  radial-gradient(circle at 30% 30%,#fff 0 1.5px,#F7D3E0 2.5px 4px,transparent 5px) calc(50% - 26px) 50%/10px 10px no-repeat,
+  radial-gradient(circle at 30% 30%,#fff 0 2px,#F2C9D9 3px 6px,transparent 7px) 50% 50%/14px 14px no-repeat,
+  radial-gradient(circle at 30% 30%,#fff 0 1.5px,#DCD2FA 2.5px 4px,transparent 5px) calc(50% + 26px) 50%/10px 10px no-repeat,
+  linear-gradient(90deg,rgba(106,78,99,0),rgba(106,78,99,.24),rgba(106,78,99,0)) 0 50%/100% 2px no-repeat}
+
+/* 배경에 떠 있는 방울 두 개 · 은은하게 */
+.bg::before,.bg::after{content:"";position:absolute;border-radius:50%;opacity:.7;will-change:transform;
+  background:radial-gradient(circle at 30% 26%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.25) 42%,rgba(255,205,228,.22) 72%,rgba(255,255,255,.55) 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.8);animation:drift 34s ease-in-out infinite alternate}
+.bg::before{width:84px;height:84px;left:6%;top:58%;animation-delay:-9s}
+.bg::after{width:52px;height:52px;right:9%;top:22%;animation-delay:-20s;opacity:.6}
+.paused .bg::before,.paused .bg::after{animation-play-state:paused}
+
+@media (max-width:720px){
+  .feat svg{width:70px;height:70px;padding:14px}
+  .svc .ic{width:68px;height:68px}
+  .svc .ic svg{width:38px;height:38px}
+  .bg::before,.bg::after{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .btn::before,.btn::after,nav.main a::before,nav.main a::after{display:none}
+  .btn:hover,nav.main a.cta:hover,.work .pic:hover,.feat div:hover svg,.svc:hover .ic,.btn:active{animation:none!important}
+  .bg::before,.bg::after{animation:none}
+}
 </style>
 
 </head>
@@ -501,7 +737,7 @@ header.top{background:rgba(255,252,250,.86)}
 <header class="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="몽글몽글필름 처음으로">
-      <img src="img/logo-512.png" width="40" height="40" alt="몽글몽글필름 로고">
+      <img src="img/logo-round.png" width="40" height="40" alt="몽글몽글필름 로고">
       <span>몽글몽글필름</span>
     </a>
     <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="menu">
@@ -935,7 +1171,7 @@ header.top{background:rgba(255,252,250,.86)}
 
 <footer>
   <div class="in">
-    <a class="brand" href="#top"><img src="img/logo-512.png" width="44" height="44" alt="몽글몽글필름 로고"><span>몽글몽글필름</span></a>
+    <a class="brand" href="#top"><img src="img/logo-round.png" width="44" height="44" alt="몽글몽글필름 로고"><span>몽글몽글필름</span></a>
     <div class="mid">
       동네 가게 홍보 영상 · 식전 · 결혼식 · 돌잔치 영상 제작<br>
       메일 · <a href="mailto:yesterdigest@gmail.com">yesterdigest@gmail.com</a>
