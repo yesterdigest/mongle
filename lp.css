@@ -184,3 +184,43 @@ header.top .go a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75)}
 header.top .go a{transition:transform .25s ease,background .25s}
 .faq summary::before{background:var(--gloss),linear-gradient(135deg,#FFDCE5,#E8E1FF);box-shadow:inset 0 -3px 6px rgba(180,140,200,.25),0 2px 6px rgba(164,118,156,.18)}
 @media (prefers-reduced-motion:reduce){.btn::before,.btn::after,header.top .go a::before,header.top .go a::after{display:none}.btn:hover,header.top .go a.cta:hover,.btn:active{animation:none!important}}
+
+/* ===== 2026-10-23 B안 · 홈페이지와 같은 상단바(메뉴) ===== */
+nav.main{display:flex;align-items:center;gap:2px}
+nav.main a{display:block;padding:6px 15px;font-size:18px;font-weight:800;letter-spacing:-1px;text-decoration:none;border-radius:999px;transition:background .25s,transform .25s}
+nav.main a:hover{background:var(--gloss),rgba(255,226,238,.75);box-shadow:0 6px 16px rgba(164,118,156,.16)}
+nav.main a.cta{margin-left:10px;padding:10px 20px;color:#fff;background:var(--gloss),var(--btn);box-shadow:0 6px 18px rgba(125,95,152,.28),inset 0 2px 4px rgba(255,255,255,.42),inset 0 -6px 10px rgba(80,40,110,.16)}
+nav.main a.cta:hover{background:var(--gloss),var(--btn-h);transform:translateY(-2px)}
+.burger{display:none;width:44px;height:44px;padding:0;border:0;border-radius:50%;background:var(--gloss),rgba(255,255,255,.78);box-shadow:var(--sh);color:var(--ink);cursor:pointer}
+.burger svg{margin:auto}
+@media (max-width:1000px){nav.main a{padding:6px 11px}}
+@media (max-width:860px){
+  .burger{display:block}
+  nav.main{display:none;position:absolute;top:calc(100% + 4px);left:12px;right:12px;flex-direction:column;align-items:stretch;gap:0;border-radius:var(--r-m);background:#FFFCFA;box-shadow:var(--sh2);padding:8px 14px 16px}
+  nav.main.open{display:flex}
+  nav.main a{padding:0 12px;min-height:48px;display:flex;align-items:center;border-radius:var(--r-s)}
+  nav.main a.cta{margin:10px 0 0;justify-content:center}
+}
+.prices.two{grid-template-columns:repeat(2,1fr);max-width:720px;margin-left:auto;margin-right:auto}
+@media (max-width:720px){.prices.two{grid-template-columns:1fr}}
+
+/* ===== 2026-10-23 B안 · 상단바 고정 + 사례 영상 칸 ===== */
+html{scroll-padding-top:84px}
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.top.scrolled{background:rgba(255,252,250,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 6px 24px rgba(164,118,156,.16)}
+@media (max-width:720px){html{scroll-padding-top:68px}}
+
+.cases{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px 22px;margin:40px auto 0;max-width:1100px}
+.case{margin:0;width:260px}
+.case.land{width:460px}
+.case .pic{position:relative;overflow:hidden;border-radius:var(--r-m);box-shadow:var(--sh);background:var(--lav)}
+.case .pic.v{aspect-ratio:9/16}
+.case .pic.l{aspect-ratio:16/9}
+.case .pic.p{aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:14px;background:linear-gradient(160deg,#FFFBF2 0%,#FFF1DA 55%,#FFF7EC 100%)}
+.case .pic.p b{display:block;font-size:19px;font-weight:800;letter-spacing:-.8px}
+.case .pic.p small{display:block;margin-top:4px;font-size:14px;font-weight:600;color:var(--ink2)}
+.case video,.case .pic img{width:100%;height:100%;object-fit:cover}
+.case figcaption{padding:10px 6px 0;font-size:16px;font-weight:800;letter-spacing:-.6px;line-height:1.4}
+.case figcaption span{display:block;margin-top:3px;font-size:14px;font-weight:500;line-height:1.6;color:var(--ink2);letter-spacing:-.3px}
+.cases-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:14.5px;font-weight:600;color:var(--ink2)}
+@media (max-width:720px){.case,.case.land{width:100%;max-width:340px}}

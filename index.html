@@ -456,6 +456,8 @@ header.top{background:rgba(255,252,250,.86)}
 .svc.event:nth-child(3)::after{animation-delay:-2.3s}.svc.event:nth-child(4)::after{animation-delay:-4.6s}
 @keyframes glow{from{opacity:.45;transform:scale(.95)}to{opacity:.85;transform:scale(1.05)}}
 .svc > *{position:relative;z-index:1}
+.svc-more{margin-top:auto;padding-top:14px;font-size:15px;font-weight:800;text-decoration:none;border-bottom:2px solid rgba(106,78,99,.25);align-self:flex-start}
+.svc-more:hover{border-bottom-color:var(--ink)}
 .svcs-note{max-width:760px;margin:30px auto 0;text-align:center;font-weight:700}
 
 /* 행사 영상 사례 자리 (실제 손님 얼굴·영상은 허락받은 것만 올려요) */
@@ -727,6 +729,57 @@ nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-sha
   .btn:hover,nav.main a.cta:hover,.work .pic:hover,.feat div:hover svg,.svc:hover .ic,.btn:active{animation:none!important}
   .bg::before,.bg::after{animation:none}
 }
+
+/* 사례 슬라이더 · 허락받은 영상 칸 */
+.slide.cs{display:grid;grid-template-columns:1fr 31.6%}
+.slide.cs .cap{align-self:center;padding:0 56px}
+.slide.cs .cap h2{font-size:34px;margin:16px 0 12px}
+.slide.cs .cap p{max-width:440px;font-weight:600}
+.slide.cs .vid{position:relative;margin:18px 18px 18px 0;height:calc(100% - 36px);border-radius:var(--r-l);overflow:hidden;box-shadow:0 12px 34px rgba(120,80,130,.22);background:#14183a}
+.slide.cs video{width:100%;height:100%;object-fit:cover}
+.slide.cs.land{grid-template-columns:1fr 56%}
+.slide.cs.land .vid{align-self:center;height:auto;aspect-ratio:16/9;background:#111}
+.slide.c1{background:linear-gradient(120deg,#FFF7EA,#FFDCE5)}
+.slide.c2{background:linear-gradient(120deg,#E8E1FF,#FFE9D2)}
+.slide.c3{background:linear-gradient(120deg,#FFE9D2,#FFDCE5)}
+.slide.c4{background:linear-gradient(120deg,#E8E1FF,#DDE3F8)}
+@media (max-width:720px){
+  .stage{aspect-ratio:3/4}
+  .slide.cs{display:block}
+  .slide.cs .vid{position:absolute;inset:0;margin:0;height:100%;border-radius:0;box-shadow:none}
+  .slide.cs video{object-position:center 22%}
+  .slide.cs .cap{z-index:2;position:absolute;left:0;right:0;bottom:0;padding:40px 16px 16px;color:#fff;background:linear-gradient(to top,rgba(20,16,40,.88),rgba(20,16,40,0))}
+  .slide.cs .cap h2{font-size:21px;margin:8px 0 4px}
+  .slide.cs .cap p{font-size:14px}
+  .slide.cs .tag{background:rgba(255,255,255,.9);color:var(--ink)}
+  .slide.cs.land .vid{inset:auto;top:18%;left:12px;right:12px;width:auto;height:auto;aspect-ratio:16/9;border-radius:20px;box-shadow:var(--sh2)}
+  .slide.cs.land .cap{color:var(--ink);background:none}
+  .bar{padding-left:14px;padding-right:14px}
+  .dots{gap:6px}
+  .dots button{width:20px}
+  .dots button[aria-current="true"]{width:32px}
+}
+
+/* ===== 2026-10-23 B안 · 상단바 고정 + 사례 영상 칸 ===== */
+html{scroll-padding-top:84px}
+header.top{position:sticky;top:0;z-index:50;transition:background .3s,box-shadow .3s}
+header.top.scrolled{background:rgba(255,252,250,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 6px 24px rgba(164,118,156,.16)}
+@media (max-width:720px){html{scroll-padding-top:68px}}
+
+.cases{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px 22px;margin:40px auto 0;max-width:1100px}
+.case{margin:0;width:260px}
+.case.land{width:460px}
+.case .pic{position:relative;overflow:hidden;border-radius:var(--r-m);box-shadow:var(--sh);background:var(--lav)}
+.case .pic.v{aspect-ratio:9/16}
+.case .pic.l{aspect-ratio:16/9}
+.case .pic.p{aspect-ratio:4/3;display:grid;place-items:center;text-align:center;padding:14px;background:linear-gradient(160deg,#FFFBF2 0%,#FFF1DA 55%,#FFF7EC 100%)}
+.case .pic.p b{display:block;font-size:19px;font-weight:800;letter-spacing:-.8px}
+.case .pic.p small{display:block;margin-top:4px;font-size:14px;font-weight:600;color:var(--ink2)}
+.case video,.case .pic img{width:100%;height:100%;object-fit:cover}
+.case figcaption{padding:10px 6px 0;font-size:16px;font-weight:800;letter-spacing:-.6px;line-height:1.4}
+.case figcaption span{display:block;margin-top:3px;font-size:14px;font-weight:500;line-height:1.6;color:var(--ink2);letter-spacing:-.3px}
+.cases-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:14.5px;font-weight:600;color:var(--ink2)}
+@media (max-width:720px){.case,.case.land{width:100%;max-width:340px}}
 </style>
 
 </head>
@@ -785,11 +838,37 @@ nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-sha
         <video id="sv" src="media/intro-v2-v.mp4" poster="media/intro-v2-poster.jpg" muted loop playsinline autoplay preload="metadata" aria-label="몽글몽글필름 소개 영상 26초"></video>
       </div>
     </div>
-    <div class="slide s1 ph" aria-hidden="true">
-      <div><h2>사례 준비 중</h2><p>허락해 주신 가게 영상부터 하나씩 올릴게요.</p></div>
+    <div class="slide cs c1" aria-hidden="true">
+      <div class="cap">
+        <span class="tag">식전 영상</span>
+        <h2>사진 70여 장으로 만든 식전 영상</h2>
+        <p>웨딩·연애 사진만 받아서 제가 배치하고 글을 넣었어요. 이것만 준비해 주시면 이렇게 나와요.</p>
+      </div>
+      <div class="vid"><video src="media/cases/daejeon-wedding.mp4" poster="media/cases/daejeon-wedding-poster.jpg" muted loop playsinline preload="none" aria-label="사진 70여 장으로 만든 웨딩 식전 영상 10초 · 얼굴은 흐리게 가렸어요"></video></div>
     </div>
-    <div class="slide s2 ph" aria-hidden="true">
-      <div><h2>사례 준비 중</h2><p>인테리어 · 음식점 · 청소 가게 영상과 식전 · 돌잔치 영상이 들어올 자리예요.</p></div>
+    <div class="slide cs c2" aria-hidden="true">
+      <div class="cap">
+        <span class="tag">식전 영상</span>
+        <h2>반려동물이 들려주는 결혼 이야기</h2>
+        <p>사진·영상 250여 개와 시나리오를 받아서, 쓰신 장면 그대로 만들었어요.</p>
+      </div>
+      <div class="vid"><video src="media/cases/cheonan-pet.mp4" poster="media/cases/cheonan-pet-poster.jpg" muted loop playsinline preload="none" aria-label="반려동물 시점으로 만든 식전 영상 10초 · 얼굴은 흐리게 가렸어요"></video></div>
+    </div>
+    <div class="slide cs c3 land" aria-hidden="true">
+      <div class="cap">
+        <span class="tag">축가 영상</span>
+        <h2>박자에 맞춰 가사가 나오는 축가 영상</h2>
+        <p>사진과 곡만 받아서 만들었어요. 얼굴은 흐리게 가렸어요.</p>
+      </div>
+      <div class="vid"><video src="media/cases/gwangju-lyric.mp4" poster="media/cases/gwangju-lyric-poster.jpg" muted loop playsinline preload="none" aria-label="사진 위로 가사가 박자에 맞춰 나오는 축가 영상 10초 · 얼굴은 흐리게 가렸어요"></video></div>
+    </div>
+    <div class="slide cs c4" aria-hidden="true">
+      <div class="cap">
+        <span class="tag">행사 영상</span>
+        <h2>사진 140여 장으로 만든 총회 영상</h2>
+        <p>5분 20초 영상이에요. 한 해 행사를 앨범과 지도처럼 넘겨 보이게 만들었어요.</p>
+      </div>
+      <div class="vid"><video src="media/cases/cheongju-event.mp4" poster="media/cases/cheongju-event-poster.jpg" muted loop playsinline preload="none" aria-label="동문회 총회 영상 10초 · 얼굴과 이름은 흐리게 가렸어요"></video></div>
     </div>
   </div>
   <div class="bar">
@@ -797,6 +876,8 @@ nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-sha
       <button type="button" aria-label="1번째 슬라이드" aria-current="true"></button>
       <button type="button" aria-label="2번째 슬라이드"></button>
       <button type="button" aria-label="3번째 슬라이드"></button>
+      <button type="button" aria-label="4번째 슬라이드"></button>
+      <button type="button" aria-label="5번째 슬라이드"></button>
     </div>
     <div class="ctl">
       <button type="button" id="pp" aria-label="멈춤" title="멈춤">
@@ -824,24 +905,28 @@ nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-sha
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square" aria-hidden="true"><rect x="8" y="14" width="48" height="32"/><path d="M26 24l14 8-14 8z"/><path d="M20 54h24M32 46v8"/></svg></div>
         <h3>가게 홍보 영상</h3>
         <p>인테리어, 음식점, 청소 같은 가게를 알리는 30초~1분 영상이에요. 릴스·쇼츠 같은 세로 영상도, 가게 TV용 가로 영상도 만들어요.</p>
+        <a class="svc-more" href="business/">업체 소개 안내 보기</a>
       </div>
       <div class="svc event rv" style="--rd:.12s">
         <span class="kind">행사 · 한 편씩</span>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="26" r="5"/><path d="M32 21c-1-9 4-13 8-12 1 5-2 10-8 12zM37 26c8-3 14 0 14 5-5 3-11 1-14-5zM33 31c4 7 2 13-3 14-3-5-1-11 3-14zM27 31c-7 3-8 9-5 13 5-1 8-7 5-13zM27 26c-8-1-12 3-11 8 5 1 10-2 11-8z" transform="translate(0 -4)"/><path d="M32 40v16M32 50c-6-1-9-4-10-8M32 46c5-1 8-3 9-7"/></svg></div>
         <h3>식전 영상</h3>
         <p>예식이 시작되기 전에 화면으로 보여 드리는 영상이에요. 두 분의 사진과 짧은 글로 은은하게 만들어요.</p>
+        <a class="svc-more" href="wedding/">식전·축가 안내 보기</a>
       </div>
       <div class="svc event rv" style="--rd:.24s">
         <span class="kind">행사 · 한 편씩</span>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="38" r="13"/><circle cx="40" cy="38" r="13"/><path d="M32 8l4 6-4 5-4-5z"/><path d="M28 14h8"/></svg></div>
         <h3>결혼식 영상</h3>
         <p>예식장에서 틀어 드리는 소개 영상이나 감사 영상이에요. 보내 주신 사진과 영상으로 차분하게 이어 붙여요.</p>
+        <a class="svc-more" href="wedding/">식전·축가 안내 보기</a>
       </div>
       <div class="svc event rv" style="--rd:.36s">
         <span class="kind">행사 · 한 편씩</span>
         <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M32 54V30"/><path d="M32 36c-9 0-14-5-14-14 9 0 14 5 14 14zM32 30c0-8 5-13 14-13 0 9-5 13-14 13z"/><path d="M14 54h36"/><path d="M12 10l2 4 4 2-4 2-2 4-2-4-4-2 4-2zM52 8l1.4 3 3 1.4-3 1.4L52 17l-1.4-3-3-1.4 3-1.4z"/></svg></div>
         <h3>돌잔치 영상</h3>
         <p>아이가 자란 모습을 사진으로 이어 만드는 성장 영상이에요. 돌잔치에서 한 번 틀어 드리는 영상이에요.</p>
+        <a class="svc-more" href="event/">행사·모임 안내 보기</a>
       </div>
     </div>
     <p class="svcs-note rv" style="margin-bottom:10px">더 자세한 안내 · <a href="store-promo/">가게 홍보 영상</a> · <a href="reels-shorts-monthly/">릴스·쇼츠 월 4편</a> · <a href="wedding-video/">결혼식 영상</a> · <a href="caption-safe-area/">영상 글자 자리 잡기</a></p>
@@ -881,27 +966,34 @@ nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-sha
       </div>
     </div>
     <h3 class="works-sub rv">행사 영상</h3>
-    <p class="lead rv">허락해 주신 영상이 생기면 이곳에 올려요. 두 분의 얼굴이나 아이 사진은 허락 없이 올리지 않아요.</p>
-    <div class="works ev">
-      <div class="work rv" style="--rd:.0s">
-        <figure>
-          <div class="pic r43 ivory"><svg class="flower" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="32" cy="26" r="4"/><path d="M32 22c-1-8 3-12 7-11 1 5-2 9-7 11zM36 26c7-3 13 0 13 4-5 3-10 1-13-4zM33 30c4 6 2 12-3 13-3-4-1-10 3-13zM28 30c-6 3-7 8-4 12 5-1 7-6 4-12zM28 26c-7-1-11 3-10 7 5 1 9-2 10-7z" transform="translate(0 -3)"/><path d="M32 40v18"/></svg><div class="ph-t">사례 준비 중<small>식전 영상 · 가로</small></div></div>
-          <figcaption>식전 영상<span>가로 영상 · 준비 중</span></figcaption>
-        </figure>
-      </div>
-      <div class="work rv" style="--rd:.12s">
-        <figure>
-          <div class="pic r43 ivory"><svg class="flower" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="38" r="13"/><circle cx="40" cy="38" r="13"/><path d="M32 8l4 6-4 5-4-5z"/></svg><div class="ph-t">사례 준비 중<small>결혼식 영상 · 가로</small></div></div>
-          <figcaption>결혼식 영상<span>가로 영상 · 준비 중</span></figcaption>
-        </figure>
-      </div>
-      <div class="work rv" style="--rd:.24s">
-        <figure>
-          <div class="pic r43 ivory"><svg class="flower" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M32 54V30"/><path d="M32 36c-9 0-14-5-14-14 9 0 14 5 14 14zM32 30c0-8 5-13 14-13 0 9-5 13-14 13z"/><path d="M14 54h36"/></svg><div class="ph-t">사례 준비 중<small>돌잔치 영상 · 가로</small></div></div>
-          <figcaption>돌잔치 영상<span>가로 영상 · 준비 중</span></figcaption>
-        </figure>
-      </div>
+    <p class="lead rv">허락해 주신 영상만 올렸어요. 얼굴과 이름은 안개처럼 흐리게 가렸어요. 아직 없는 영상은 준비 중으로 두었어요.</p>
+    <div class="cases">
+      <figure class="case rv" style="--rd:0s">
+        <div class="pic v"><video data-case src="media/cases/daejeon-wedding.mp4" poster="media/cases/daejeon-wedding-poster.jpg" muted loop playsinline preload="none" aria-label="웨딩 식전 영상 10초"></video></div>
+        <figcaption>식전 영상 · 웨딩<span>사진 70여 장만 받아서 만들었어요</span></figcaption>
+      </figure>
+      <figure class="case rv" style="--rd:.1s">
+        <div class="pic v"><video data-case src="media/cases/cheonan-pet.mp4" poster="media/cases/cheonan-pet-poster.jpg" muted loop playsinline preload="none" aria-label="반려동물 식전 영상 10초"></video></div>
+        <figcaption>식전 영상 · 반려동물 이야기<span>사진·영상 250여 개와 시나리오를 장면 그대로 옮겼어요</span></figcaption>
+      </figure>
+      <figure class="case land rv" style="--rd:.2s">
+        <div class="pic l"><video data-case src="media/cases/gwangju-lyric.mp4" poster="media/cases/gwangju-lyric-poster.jpg" muted loop playsinline preload="none" aria-label="축가 가사 영상 10초"></video></div>
+        <figcaption>축가 영상<span>사진과 곡만 받아서, 가사를 박자에 맞춰 넣었어요</span></figcaption>
+      </figure>
+      <figure class="case rv" style="--rd:0s">
+        <div class="pic v"><video data-case src="media/cases/cheongju-event.mp4" poster="media/cases/cheongju-event-poster.jpg" muted loop playsinline preload="none" aria-label="동문회 총회 영상 10초"></video></div>
+        <figcaption>단체·행사 영상 · 총회<span>사진 140여 장으로 5분 20초 영상을 만들었어요</span></figcaption>
+      </figure>
+      <figure class="case rv" style="--rd:.1s">
+        <div class="pic p"><div><b>사례 준비 중</b><small>결혼식 영상 · 가로</small></div></div>
+        <figcaption>결혼식 영상<span>가로 영상 · 준비 중</span></figcaption>
+      </figure>
+      <figure class="case rv" style="--rd:.2s">
+        <div class="pic p"><div><b>사례 준비 중</b><small>돌잔치 영상 · 가로</small></div></div>
+        <figcaption>돌잔치 영상<span>가로 영상 · 준비 중</span></figcaption>
+      </figure>
     </div>
+    <p class="cases-note rv">영상은 10초만 소리 없이 보여 드려요. 실제 영상에는 음악과 글이 함께 들어가요.</p>
     <div class="works-note">
       <p>우리 가게 영상은 어떨까 궁금하시면, 신청서에 참고하고 싶은 영상 주소를 적어 주세요.</p>
       <a class="btn" href="#form" data-form data-todo="google-form-url">신청하기</a>
@@ -1232,24 +1324,25 @@ nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-sha
   // 사례 슬라이더: 소리 끔 · 반복 · 멈춤 버튼 · 움직임 줄이기 설정이면 멈춘 채로 시작
   var slides = [].slice.call(document.querySelectorAll(".slide"));
   var dots = [].slice.call(document.querySelectorAll("#dots button"));
-  var vid = document.getElementById("sv");
+  var vids = [].slice.call(document.querySelectorAll(".slide video"));
   var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var paused = reduce, idx = 0, timer = null;
   var ppBtn = document.getElementById("pp"), icP = document.getElementById("ic-pause"), icY = document.getElementById("ic-play");
 
   function syncVideo(){
-    if(!vid) return;
-    if(!paused && idx === 0){ var p = vid.play(); if(p && p.catch) p.catch(function(){}); } else { vid.pause(); }
+    vids.forEach(function(v){
+      if(!paused && slides[idx].contains(v)){ var p = v.play(); if(p && p.catch) p.catch(function(){}); } else { v.pause(); }
+    });
   }
   function show(n){
     idx = (n + slides.length) % slides.length;
     slides.forEach(function(s,k){ s.classList.toggle("on", k === idx); s.setAttribute("aria-hidden", k !== idx); });
     dots.forEach(function(d,k){ d.setAttribute("aria-current", k === idx); });
-    if(vid && idx === 0){ try { vid.currentTime = 0; } catch(e){} }
+    vids.forEach(function(v){ if(slides[idx].contains(v)){ try { v.currentTime = 0; } catch(e){} } });
     syncVideo();
   }
-  // 첫 칸(소개 영상 26초)은 끝까지 보이게 27초 · 나머지는 6초
-  function restart(){ clearTimeout(timer); if(!paused) timer = setTimeout(function(){ show(idx+1); restart(); }, idx === 0 ? 27000 : 6000); }
+  // 첫 칸(소개 영상 26초)은 끝까지 보이게 27초 · 사례 영상(10초)은 11초
+  function restart(){ clearTimeout(timer); if(!paused) timer = setTimeout(function(){ show(idx+1); restart(); }, idx === 0 ? 27000 : 11000); }
   function setPaused(v){
     paused = v; icP.hidden = v; icY.hidden = !v;
     ppBtn.setAttribute("aria-label", v ? "재생" : "멈춤"); ppBtn.title = v ? "재생" : "멈춤";
@@ -1276,5 +1369,6 @@ nav.main a:not(.cta):hover{background:var(--gloss),rgba(255,226,238,.75);box-sha
   dlg.addEventListener("close", function(){ dv.pause(); dv.removeAttribute("src"); });
 })();
 </script>
+<script src="site.js" defer></script>
 </body>
 </html>
