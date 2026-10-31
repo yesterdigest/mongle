@@ -779,7 +779,18 @@ header.top.scrolled{background:rgba(255,252,250,.9);-webkit-backdrop-filter:blur
 .case figcaption{padding:10px 6px 0;font-size:16px;font-weight:800;letter-spacing:-.6px;line-height:1.4}
 .case figcaption span{display:block;margin-top:3px;font-size:14px;font-weight:500;line-height:1.6;color:var(--ink2);letter-spacing:-.3px}
 .cases-note{max-width:640px;margin:26px auto 0;text-align:center;font-size:14.5px;font-weight:600;color:var(--ink2)}
-@media (max-width:720px){.case,.case.land{width:100%;max-width:340px}}
+.case.style{width:240px}
+.cases.cases-more{margin-top:34px}
+.cases:not(.cases-more){align-items:flex-start}
+.case.style .pic{cursor:default}
+.case .snd{position:absolute;left:10px;bottom:10px;display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 13px 0 11px;border:0;border-radius:999px;background:rgba(106,78,99,.82);color:#fff;font:700 13.5px/1 Pretendard,sans-serif;letter-spacing:-.3px;cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.case .snd b{font-weight:700}
+.case .snd .off{display:inline}.case .snd .on{display:none}
+.case .snd[aria-pressed="true"] .on{display:inline}.case .snd[aria-pressed="true"] .off{display:none}
+.case .snd:hover{background:rgba(106,78,99,.95)}
+.case figcaption span.mat{font-weight:600;color:var(--ink)}
+.case figcaption a{color:var(--ink);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+@media (max-width:720px){.case,.case.land,.case.style{width:100%;max-width:340px}}
 </style>
 
 </head>
@@ -974,21 +985,31 @@ header.top.scrolled{background:rgba(255,252,250,.9);-webkit-backdrop-filter:blur
         </figure>
       </div>
     </div>
-    <h3 class="works-sub rv">행사 영상</h3>
-    <p class="lead rv">허락해 주신 영상만 올렸어요. 얼굴과 이름은 안개처럼 흐리게 가렸어요. 아직 없는 영상은 준비 중으로 두었어요.</p>
+    <h3 class="works-sub rv" id="styles">스타일 고르기</h3>
+    <p class="lead rv">만든 건 훨씬 많은데 홍보 허락받은 것만 올려 두었어요. 마음에 드는 느낌을 골라 주시면, 그 느낌으로 만들어 드려요. 얼굴과 이름은 안개처럼 흐리게 가렸어요.</p>
     <div class="cases">
-      <figure class="case rv" style="--rd:0s">
-        <div class="pic v"><video data-case src="media/cases/daejeon-wedding.mp4" poster="media/cases/daejeon-wedding-poster.jpg" muted loop playsinline preload="none" aria-label="웨딩 식전 영상 10초"></video></div>
-        <figcaption>식전 영상 · 웨딩<span>사진 70여 장만 받아서 만들었어요</span></figcaption>
+      <figure class="case style rv" style="--rd:0.0s">
+        <div class="pic v"><video data-case data-snd src="media/styles/gwangju-lyric.mp4" poster="media/styles/gwangju-lyric-poster.jpg" muted loop playsinline preload="none" aria-label="가사가 노래에 맞춰 나오는 축가 영상 28초 · 얼굴은 흐리게 가렸어요"></video>
+          <button class="snd" type="button" aria-pressed="false" aria-label="축가 가사 영상 소리 켜기"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z" fill="currentColor"/><path class="on" d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.4 3.6a6.2 6.2 0 0 1 0 8.8"/><path class="off" d="M11 6l3.5 4M14.5 6L11 10"/></svg><b>소리 켜기</b></button></div>
+        <figcaption>축가 가사 영상<span class="mat">사진 10장과 곡 1개를 주시면 → 가사가 노래에 맞춰 나오는 3분 50초 영상이 돼요</span><span><a href="https://youtube.com/shorts/_6NLIwVFFaU" target="_blank" rel="noopener">유튜브에서 보기</a></span></figcaption>
       </figure>
-      <figure class="case rv" style="--rd:.1s">
-        <div class="pic v"><video data-case src="media/cases/cheonan-pet.mp4" poster="media/cases/cheonan-pet-poster.jpg" muted loop playsinline preload="none" aria-label="반려동물 식전 영상 10초"></video></div>
-        <figcaption>식전 영상 · 반려동물 이야기<span>사진·영상 250여 개와 시나리오를 장면 그대로 옮겼어요</span></figcaption>
+      <figure class="case style rv" style="--rd:0.1s">
+        <div class="pic v"><video data-case data-snd src="media/styles/jangmyeongji-growth.mp4" poster="media/styles/jangmyeongji-growth-poster.jpg" muted loop playsinline preload="none" aria-label="돌잔치 성장 영상 31초 · 얼굴은 흐리게 가렸어요"></video>
+          <button class="snd" type="button" aria-pressed="false" aria-label="돌 성장 영상 소리 켜기"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z" fill="currentColor"/><path class="on" d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.4 3.6a6.2 6.2 0 0 1 0 8.8"/><path class="off" d="M11 6l3.5 4M14.5 6L11 10"/></svg><b>소리 켜기</b></button></div>
+        <figcaption>돌 성장 영상<span class="mat">사진 102장과 영상 33개, 곡 1개를 주시면 → 열두 달 성장을 담은 3분 영상이 돼요</span><span><a href="https://youtube.com/shorts/pSDzXopaDsE" target="_blank" rel="noopener">유튜브에서 보기</a></span></figcaption>
       </figure>
-      <figure class="case land rv" style="--rd:.2s">
-        <div class="pic l"><video data-case src="media/cases/gwangju-lyric-v2.mp4" poster="media/cases/gwangju-lyric-v2-poster.jpg" muted loop playsinline preload="none" aria-label="축가 가사 영상 10초"></video></div>
-        <figcaption>축가 영상<span>사진과 곡만 받아서, 가사를 박자에 맞춰 넣었어요</span></figcaption>
+      <figure class="case style rv" style="--rd:0.2s">
+        <div class="pic v"><video data-case data-snd src="media/styles/cheonan-pet.mp4" poster="media/styles/cheonan-pet-poster.jpg" muted loop playsinline preload="none" aria-label="반려동물 시점으로 만든 식전 영상 28초 · 얼굴은 흐리게 가렸어요"></video>
+          <button class="snd" type="button" aria-pressed="false" aria-label="반려동물 시점 식전 영상 소리 켜기"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z" fill="currentColor"/><path class="on" d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.4 3.6a6.2 6.2 0 0 1 0 8.8"/><path class="off" d="M11 6l3.5 4M14.5 6L11 10"/></svg><b>소리 켜기</b></button></div>
+        <figcaption>반려동물 시점 식전 영상<span class="mat">사진·영상 250여 개와 시나리오를 주시면 → 쓰신 장면 그대로 5분 식전 영상이 돼요</span><span><a href="https://youtube.com/shorts/v6Uwo4f-GFE" target="_blank" rel="noopener">유튜브에서 보기</a></span></figcaption>
       </figure>
+      <figure class="case style rv" style="--rd:0.3s">
+        <div class="pic v"><video data-case data-snd src="media/styles/daejeon-magazine.mp4" poster="media/styles/daejeon-magazine-poster.jpg" muted loop playsinline preload="none" aria-label="잡지 화보처럼 만든 웨딩 식전 영상 28초 · 얼굴은 흐리게 가렸어요"></video>
+          <button class="snd" type="button" aria-pressed="false" aria-label="잡지풍 웨딩 식전 영상 소리 켜기"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 6h2.5L8 3v10L4.5 10H2z" fill="currentColor"/><path class="on" d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.4 3.6a6.2 6.2 0 0 1 0 8.8"/><path class="off" d="M11 6l3.5 4M14.5 6L11 10"/></svg><b>소리 켜기</b></button></div>
+        <figcaption>잡지풍 웨딩 식전 영상<span class="mat">웨딩·연애 사진 70여 장과 곡 1개를 주시면 → 잡지 화보처럼 넘어가는 3분 식전 영상이 돼요</span><span><a href="https://youtube.com/shorts/kggesqo4RX4" target="_blank" rel="noopener">유튜브에서 보기</a></span></figcaption>
+      </figure>
+    </div>
+    <div class="cases cases-more">
       <figure class="case rv" style="--rd:0s">
         <div class="pic v"><video data-case src="media/cases/cheongju-event.mp4" poster="media/cases/cheongju-event-poster.jpg" muted loop playsinline preload="none" aria-label="동문회 총회 영상 10초"></video></div>
         <figcaption>단체·행사 영상 · 총회<span>사진 140여 장으로 5분 20초 영상을 만들었어요</span></figcaption>
@@ -997,16 +1018,8 @@ header.top.scrolled{background:rgba(255,252,250,.9);-webkit-backdrop-filter:blur
         <div class="pic l"><video data-case src="media/cases/ai-baby-talk.mp4" poster="media/cases/ai-baby-talk-poster.jpg" muted loop playsinline preload="none" aria-label="말하는 AI 영상 10초 · AI로 만든 가상 인물"></video></div>
         <figcaption>AI 영상 · 말하는 사진<span>사진 한 장과 대사로 만들었어요. 말하는 10초 장면 3만 원을 더하면 넣어 드려요. 영상 속 아기는 AI로 만든 가상 인물이에요</span></figcaption>
       </figure>
-      <figure class="case rv" style="--rd:.1s">
-        <div class="pic p"><div><b>사례 준비 중</b><small>결혼식 영상 · 가로</small></div></div>
-        <figcaption>결혼식 영상<span>가로 영상 · 준비 중</span></figcaption>
-      </figure>
-      <figure class="case rv" style="--rd:.2s">
-        <div class="pic p"><div><b>사례 준비 중</b><small>돌잔치 영상 · 가로</small></div></div>
-        <figcaption>돌잔치 영상<span>가로 영상 · 준비 중</span></figcaption>
-      </figure>
     </div>
-    <p class="cases-note rv">영상은 10초만 소리 없이 보여 드려요. 실제 영상에는 음악과 글이 함께 들어가요.</p>
+    <p class="cases-note rv">스타일 카드는 처음에는 소리 없이 보이고, 소리 켜기를 누르면 음악과 함께 볼 수 있어요. 총회·AI 영상은 10초만 소리 없이 보여 드려요.</p>
     <div class="works-note">
       <p>우리 가게 영상은 어떨까 궁금하시면, 신청서에 참고하고 싶은 영상 주소를 적어 주세요.</p>
       <a class="btn" href="#form" data-form data-todo="google-form-url">신청하기</a>
